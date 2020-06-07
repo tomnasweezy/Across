@@ -1,0 +1,37 @@
+nav {
+  height: 200px;
+
+  ul {
+    display: flex;
+    list-style-type: none;
+    height: 100%;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+
+    li {
+      //   display: inline;
+      font-weight: bold;
+      font-family: "Roboto";
+      text-transform: uppercase;
+      letter-spacing: 0.3rem;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 15px;
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      a:hover {
+        color: #e9c70a;
+      }
+
+      img {
+        width: 250px;
+        height: auto;
+      }
+    }
+  }
+}

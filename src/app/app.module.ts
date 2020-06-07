@@ -6,6 +6,7 @@ import { SharedModule } from "./shared/shared.module";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MDBBootstrapModule } from "angular-bootstrap-md";
 
 import { AppComponent } from "./app.component";
 
@@ -15,7 +16,15 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
-  imports: [BrowserModule, AppRoutingModule, CoreModule, SharedModule, BrowserAnimationsModule, MatToolbarModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CoreModule,
+    SharedModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MDBBootstrapModule.forRoot(),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
