@@ -5,7 +5,11 @@
   "projects": {
     "across-ang": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -113,12 +117,6 @@
           }
         }
       }
-    }
-  },
-  "defaultProject": "across-ang",
-  "schematics": {
-    "@schematics/angular:component": {
-      "styleext": "scss"
     }
   }
 }
