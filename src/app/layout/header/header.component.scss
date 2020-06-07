@@ -1,3 +1,20 @@
+:host {
+  background: black;
+}
+
+mat-toolbar {
+  background: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: #e9c70a;
+}
+
 mat-toolbar-row {
   // height: 200px;
   img {
