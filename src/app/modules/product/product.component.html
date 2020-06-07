@@ -11,6 +11,24 @@
         <div class="carousel"></div>
         <div class="details">
           <p class="tshirtName">The Moony Cat</p>
+          <p class="price">200 EGP</p>
+          <mat-form-field appearance="outline">
+            <mat-label>Size</mat-label>
+            <mat-select>
+              <mat-option value="option1">Large</mat-option>
+              <mat-option value="option2" disabled>Medium</mat-option>
+              <mat-option value="option3">Small</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="colorWrapper">
+            <p class="colorTitle">color</p>
+            <span class="color"></span>
+          </div>
+          <mat-form-field style="width: 90px !important;" appearance="outline">
+            <mat-label>Quantity</mat-label>
+            <input matInput class="quantityInput" type="number" value="1" min="1" max="5" />
+          </mat-form-field>
+          <button mat-raised-button>Add to cart</button>
         </div>
       </div>
       <div class="lower"></div>

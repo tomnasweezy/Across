@@ -4,34 +4,62 @@
   padding: 20px 20px;
   display: flex;
   flex-direction: column;
+  align-content: center;
   border: 1px solid blue;
 
   .upper {
     flex: 1;
+    margin: 72px;
     display: flex;
-    // margin: auto;
-    // border: 1px solid red;
+
     .carousel {
       background-color: red;
       flex: 1;
     }
     .details {
-      border: 1px solid red;
+      padding: 0;
+      margin: 20px;
+      margin-top: 10px;
+      display: flex;
+      align-items: start;
+      flex-direction: column;
       flex: 1;
-      .tshirtName {
-        width: 450px;
-        margin: 20px;
-        font-weight: bold;
+      p {
+        // width: 450px;
+        // margin: 20px;
+        // font-weight: bold;
         font-family: "Roboto";
-        text-transform: uppercase;
+        // text-transform: uppercase;
         font-size: 20px;
+      }
+      .colorWrapper {
+        display: flex;
+
+        .color {
+          margin-left: 10px;
+          margin-top: 5px;
+          height: 20px;
+          width: 20px;
+          background-color: black;
+          border-radius: 50%;
+          display: inline-block;
+        }
+      }
+      button {
+        width: 405px;
+        height: 46px;
+        outline: none;
+        // border-radius: 0px;
+        // border: none;
+        // font-size: 20px;
+        margin: auto;
+        color: black;
+        background-color: #e9c70a;
       }
     }
   }
   .lower {
     flex: 1;
     border: 1px solid red;
-    // background-color: #333;
-    // margin-top: 100px;
   }
 }
