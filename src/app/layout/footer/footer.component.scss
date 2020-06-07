@@ -1,0 +1,43 @@
+mat-toolbar {
+  background: black;
+  color: #e9c70a;
+  height: 100px;
+
+  padding: 0 30px;
+
+  ul {
+    display: flex;
+    list-style-type: none;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    align-items: center;
+
+    li {
+      font-weight: bold;
+      font-family: "Roboto";
+      text-transform: uppercase;
+      letter-spacing: 0.3rem;
+      font-size: 13px;
+      margin: 0;
+      margin-right: 50px;
+
+      a {
+        color: #e9c70a;
+
+        svg {
+          height: 25px;
+          width: 25px;
+          fill: #e9c70a;
+        }
+      }
+
+      a:hover {
+        svg {
+          fill: white;
+          transition: fill 0.3s ease-in-out;
+        }
+      }
+    }
+  }
+}
