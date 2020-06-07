@@ -1,13 +1,35 @@
-nav {
-  height: 200px;
+mat-toolbar-row {
+  // height: 200px;
+  img {
+    width: 250px;
+    height: auto;
+    margin: 0 auto;
+  }
+}
+
+mat-toolbar-row:first-child {
+  margin: 20px 0px;
+}
+
+.across-navbar {
+  padding: 0px 30px;
+
+  font-weight: bold;
+  font-family: "Roboto";
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  font-size: 15px;
+  justify-content: space-between;
 
   ul {
     display: flex;
     list-style-type: none;
     height: 100%;
-    width: 100%;
-    justify-content: space-evenly;
+    // width: 100%;
+    justify-content: center;
     align-items: center;
+    margin: 0;
+    padding: 0;
 
     li {
       //   display: inline;
@@ -18,20 +40,18 @@ nav {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       font-size: 15px;
+      margin-right: 50px;
+    }
+  }
 
-      a {
-        text-decoration: none;
-        color: black;
-      }
+  .cart-button {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-      a:hover {
-        color: #e9c70a;
-      }
-
-      img {
-        width: 250px;
-        height: auto;
-      }
+    mat-icon {
+      margin-right: 10px;
     }
   }
 }

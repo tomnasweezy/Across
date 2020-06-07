@@ -12,8 +12,9 @@ import { AppComponent } from "./app.component";
 
 import { HeaderComponent } from "./layout/header/header.component";
 import { FooterComponent } from "./layout/footer/footer.component";
-import { MatToolbarModule } from "@angular/material/toolbar";
 
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatIconModule } from "@angular/material/icon";
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
   imports: [
@@ -23,6 +24,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
     SharedModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatIconModule,
     MDBBootstrapModule.forRoot(),
   ],
   providers: [],
