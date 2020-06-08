@@ -49,10 +49,7 @@
         width: 405px;
         height: 46px;
         outline: none;
-        // border-radius: 0px;
-        // border: none;
-        // font-size: 20px;
-        margin: auto;
+        margin-left: 10px;
         color: black;
         background-color: #e9c70a;
       }
@@ -60,6 +57,17 @@
   }
   .lower {
     flex: 1;
-    border: 1px solid red;
+    /* width: 78%; */
+    margin-top: -48px;
+    // border: 1px solid red;
+    padding-right: 217px;
+    /* margin-left: 143px; */
+    display: flex;
+    justify-content: flex-end;
+    .example-headers-align {
+      display: flex;
+      flex-direction: column;
+      width: 39%;
+    }
   }
 }
