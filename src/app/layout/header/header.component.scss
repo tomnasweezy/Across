@@ -28,47 +28,39 @@ mat-toolbar-row:first-child {
   margin: 20px 0px;
 }
 
-.across-navbar {
-  padding: 0px 30px;
+links {
+  ul li {
+    // margin-right: 2.5rem;
+
+    a:hover {
+      color: #e9c70a;
+    }
+  }
+}
+
+.cart-button {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   font-weight: bold;
   font-family: "Roboto";
   text-transform: uppercase;
   letter-spacing: 0.3rem;
   font-size: 15px;
-  justify-content: space-between;
 
-  ul {
-    display: flex;
-    list-style-type: none;
-    height: 100%;
-    // width: 100%;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-
-    li {
-      //   display: inline;
-      font-weight: bold;
-      font-family: "Roboto";
-      text-transform: uppercase;
-      letter-spacing: 0.3rem;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      font-size: 15px;
-      margin-right: 50px;
-    }
+  mat-icon {
+    margin-right: 10px;
   }
+}
 
-  .cart-button {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.small-cart {
+  display: flex;
+}
 
-    mat-icon {
-      margin-right: 10px;
-    }
+@media (min-width: 992px) {
+  .small-cart {
+    display: none;
   }
 }

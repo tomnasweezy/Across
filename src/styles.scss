@@ -31,3 +31,31 @@ a:hover {
     height: 100%;
   }
 }
+
+.navbar {
+  background: black;
+  color: white;
+  min-height: 50px;
+
+  links {
+    font-weight: bold !important;
+    font-family: "Roboto" Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    font-size: 15px;
+    justify-content: center;
+
+    li {
+      margin-right: 2.5rem;
+    }
+  }
+
+  .nav-item.active > .nav-link {
+    background-color: transparent !important;
+    color: #e9c70a !important;
+  }
+
+  .nav-item .nav-link:hover {
+    color: #e9c70a !important;
+  }
+}
