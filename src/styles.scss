@@ -2,6 +2,7 @@
 
 @font-face {
   font-family: "Lulo Clean";
+  font-display: swap;
   src: url("assets/fonts/Lulo-Clean\ One\ Bold.ttf") format("truetype");
 }
 
@@ -21,4 +22,12 @@ a {
 
 a:hover {
   color: #e9c70a;
+}
+
+.home-carousel-wrapper {
+  .carousel,
+  .carousel-inner,
+  .carousel-item {
+    height: 100%;
+  }
 }

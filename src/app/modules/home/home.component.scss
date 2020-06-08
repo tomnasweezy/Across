@@ -1,0 +1,53 @@
+.content-wrapper {
+  .home-carousel-wrapper {
+    height: 600px;
+    width: 100%;
+  }
+
+  .section2 {
+    padding: 50px 30px;
+
+    h2 {
+      font-weight: bold;
+      text-transform: uppercase;
+      font-family: "Lulo Clean", Arial, Helvetica, sans-serif;
+      margin-left: 27px;
+      margin-bottom: 20px;
+    }
+
+    // h2::after {
+    //   content: "";
+    //   background: #e9c70a;
+    //   height: 10px;
+    //   position: absolute;
+    //   left: 10px;
+    //   bottom: 0;
+    //   width: 100px;
+    //   color: #e9c70a;
+    // }
+
+    .items-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: auto;
+      // padding: 20px;
+
+      .shirt-container {
+        height: 400px;
+        width: 85%;
+        background: grey;
+        margin: 20px auto;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      //   .shirt-container:first-child {
+      //     margin-left: 0px;
+      //   }
+    }
+  }
+}
