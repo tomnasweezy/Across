@@ -1,14 +1,36 @@
 <div class="stepperWrapper">
-  <mat-horizontal-stepper linear #stepper>
-    <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Order Summary</ng-template>
-        <app-product-card></app-product-card>
-        <mat-form-field>
-          <input matInput formControlName="firstCtrl" placeholder="Last name, First name" required />
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Next</button>
+        <div class="left">
+          <app-product-card></app-product-card>
+          <app-product-card></app-product-card>
+          <app-product-card></app-product-card>
+        </div>
+        <div class="right">
+          <h1>Order Summary</h1>
+          <table>
+            <tr>
+              <th>Subtotal</th>
+              <td>200 LE</td>
+            </tr>
+            <tr>
+              <th>Shipping</th>
+              <td>45 LE</td>
+            </tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr>
+              <th>Total</th>
+              <th>445 LE</th>
+            </tr>
+          </table>
+          <div class="nextButton">
+            <button mat-raised-button matStepperNext>Next</button>
+            <!-- <button mat-button matStepperNext>Next</button> -->
+          </div>
         </div>
       </form>
     </mat-step>
@@ -16,8 +38,14 @@
       <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Shipping address</ng-template>
         <mat-form-field>
-          <mat-label>Address</mat-label>
-          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required />
+          <mat-label>Full Name</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="John Doe" required />
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="John Doe" required />
+          <mat-label>Phone Number</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="John Doe" required />
+          <mat-label>Street Address</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="John Doe" required />
         </mat-form-field>
         <div>
           <button mat-button matStepperPrevious>Back</button>
