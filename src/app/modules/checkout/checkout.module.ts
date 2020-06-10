@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-
+import { FormsModule } from "@angular/forms";
 import { CheckoutRoutingModule } from "./checkout-routing.module";
 import { CheckoutComponent } from "./checkout.component";
 import { MatStepperModule } from "@angular/material/stepper";
@@ -22,6 +22,7 @@ import { MatCardModule } from "@angular/material/card";
     MatInputModule,
     ReactiveFormsModule,
     MatCardModule,
+    FormsModule,
   ],
 })
 export class CheckoutModule {}

@@ -5,16 +5,25 @@
     </div>
     <mat-card-content>
       <div class="details">
-        <p class="tshirtName">The Moony Cat</p>
-        <p class="price">200 EGP</p>
-        <p class="color">Black</p>
+        <p class="tshirtName">{{ data.product_name }}</p>
+        <p class="price">{{ data.price }}</p>
+        <p class="color">{{ data.color }}</p>
       </div>
       <div class="Quantity">
         <mat-form-field style="width: 90px !important;" appearance="outline">
           <mat-label>Quantity</mat-label>
-          <input matInput class="quantityInput" type="number" value="1" min="1" max="5" />
+          <input
+            [(ngModel)]="data.quantity"
+            matInput
+            class="quantityInput"
+            type="number"
+            (change)="quantityamount()"
+            [value]="data.quantity"
+            min="1"
+            max="5"
+          />
         </mat-form-field>
-        <button mat-raised-button color="warn">Remove</button>
+        <button mat-raised-button color="warn" (click)="removeItem()">Remove</button>
       </div>
     </mat-card-content>
   </mat-card>
