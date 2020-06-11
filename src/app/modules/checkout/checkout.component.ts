@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { nullSafeIsEquivalent } from "@angular/compiler/src/output/output_ast";
 import { Product } from "src/app/shared/models/product.model";
+import { CookieService } from "ngx-cookie-service";
 @Component({
   selector: "app-checkout",
   templateUrl: "./checkout.component.html",
@@ -9,68 +10,44 @@ import { Product } from "src/app/shared/models/product.model";
 })
 export class CheckoutComponent implements OnInit {
   isLinear = true;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
   isEditable = false;
-  numbers: any[];
+
   shippingData = {
     fullname: null,
     email: null,
     phonenumber: null,
     streetaddress: null,
+    landmarkaddress: null,
+    buildingnumber: null,
+    floornumber: null,
+    flatnumber: null,
+    comment: null,
   };
+  realData: Product[] = [];
 
-  sampleData = [
-    {
-      product_name: "MoonyCat",
-      price: 200,
-      quantity: 2,
-      color: "black",
-    },
-    {
-      product_name: "monster",
-      price: 250,
-      quantity: 1,
-      color: "white",
-    },
-    {
-      product_name: "Cat",
-      price: 100,
-      quantity: 2,
-      color: "black",
-    },
-  ];
-
-  constructor() {
-    this.numbers = new Array(3);
-  }
+  constructor(private cookieService: CookieService) {}
 
   ngOnInit(): void {
-    // this.firstFormGroup = this._formBuilder.group({
-    //   firstCtrl: ["", Validators.required],
-    // });
-    // this.secondFormGroup = this._formBuilder.group({
-    //   secondCtrl: ["", Validators.required],
-    // });
-    // console.log(this.secondFormGroup);
+    let product = JSON.parse(this.cookieService.get("product"));
+    this.realData = product;
   }
   nextStep() {
     console.log(this.shippingData);
   }
   updateQuantity(item: Product) {
-    for (let current of this.sampleData) {
+    for (let current of this.realData) {
       if (current.product_name === item.product_name) {
         current = item;
       }
     }
-    console.log(this.sampleData);
+    console.log(this.realData);
   }
   removeItem(item: Product) {
-    let newItems = this.sampleData.filter((res) => {
+    let newItems = this.realData.filter((res) => {
       if (res.product_name !== item.product_name) {
         return res;
       }
     });
-    this.sampleData = newItems;
+    this.realData = newItems;
   }
 }

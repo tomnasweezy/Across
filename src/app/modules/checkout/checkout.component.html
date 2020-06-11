@@ -1,10 +1,10 @@
 <div class="stepperWrapper">
   <mat-horizontal-stepper [linear]="isLinear" #stepper>
-    <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+    <mat-step [editable]="isEditable">
       <div class="orderWrapper">
         <ng-template matStepLabel>Order Summary</ng-template>
         <div class="left">
-          <ng-container *ngFor="let item of sampleData">
+          <ng-container *ngFor="let item of realData">
             <app-product-card (quantity)="updateQuantity($event)" [productData]="item" (delete)="removeItem($event)"></app-product-card>
           </ng-container>
           <!-- <app-product-card></app-product-card>
@@ -36,28 +36,77 @@
         </div>
       </div>
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+    <mat-step [editable]="isEditable">
       <!-- <form [formGroup]="secondFormGroup"> -->
       <ng-template matStepLabel>Shipping address</ng-template>
-      <mat-form-field>
-        <mat-label>Full Name</mat-label>
-        <input [(ngModel)]="shippingData.fullname" matInput name="fullname" placeholder="John Doe" required />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input [(ngModel)]="shippingData.email" matInput name="email" placeholder="John Doe" required />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Phone Number</mat-label>
-        <input [(ngModel)]="shippingData.phonenumber" matInput name="phonenumber" placeholder="John Doe" required />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Street Address</mat-label>
-        <input [(ngModel)]="shippingData.streetaddress" matInput name="streetaddress" placeholder="John Doe" required />
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext (click)="nextStep()">Next</button>
+      <div class="shippinginfo">
+        <div class="personal">
+          <h4 style="font-weight: bold;">Personal info</h4>
+          <mat-form-field>
+            <mat-label>Full Name</mat-label>
+            <input [(ngModel)]="shippingData.fullname" matInput name="fullname" placeholder="John Doe" required />
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input [(ngModel)]="shippingData.email" matInput name="email" placeholder="John Doe" required />
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Phone Number</mat-label>
+            <input [(ngModel)]="shippingData.phonenumber" matInput name="phonenumber" placeholder="John Doe" required />
+          </mat-form-field>
+        </div>
+
+        <div class="shippingaddrese">
+          <div class="address">
+            <h4 style="font-weight: bold;">Shipping info</h4>
+            <mat-form-field>
+              <mat-label>Street Address</mat-label>
+              <input [(ngModel)]="shippingData.streetaddress" matInput name="streetaddress" placeholder="John Doe" required />
+            </mat-form-field>
+            <div>
+              <mat-form-field>
+                <mat-label>Address landmark</mat-label>
+                <input [(ngModel)]="shippingData.landmarkaddress" matInput name="streetaddress" placeholder="John Doe" required />
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Building number</mat-label>
+                <input [(ngModel)]="shippingData.buildingnumber" matInput name="streetaddress" placeholder="John Doe" required />
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field>
+                <mat-label>Floor number</mat-label>
+                <input [(ngModel)]="shippingData.floornumber" matInput name="streetaddress" placeholder="John Doe" required />
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Flat number</mat-label>
+                <input [(ngModel)]="shippingData.flatnumber" matInput name="streetaddress" placeholder="John Doe" required />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="comment">
+            <h4 style="font-weight: bold; visibility: hidden;">Personal info</h4>
+            <mat-form-field>
+              <mat-label>Comments</mat-label>
+              <textarea
+                [(ngModel)]="shippingData.comment"
+                rows="9"
+                matInput
+                name="streetaddress"
+                placeholder="John Doe"
+                required
+              ></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="buttonsWrapper">
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext (click)="nextStep()">Next</button>
       </div>
       <!-- </form> -->
     </mat-step>

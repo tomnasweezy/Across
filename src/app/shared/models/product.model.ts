@@ -1,6 +1,8 @@
 export class Product {
+  id: string;
   product_name: string;
   price: number;
-  quantity: number;
-  color: string;
+  size?: string;
+  quantity?: number;
+  color?: string;
 }

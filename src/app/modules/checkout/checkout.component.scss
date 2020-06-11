@@ -49,7 +49,73 @@
       }
     }
   }
-  .mat-form-field {
-    // margin-top: 16px;
+
+  .shippinginfo {
+    padding: 40px 0px;
+    // border: 1px solid red;
+    flex-direction: row;
+    display: flex;
+    .mat-form-field {
+      display: block !important;
+    }
+
+    .personal,
+    .address,
+    .comment {
+      padding: 0px 24px;
+
+      h4 {
+        margin-bottom: 30px;
+      }
+    }
+    .personal {
+      // border: 1px solid #00000045;
+      // border-radius: 5px;
+      flex: 1;
+      margin-right: 25px;
+    }
+
+    .shippingaddrese {
+      display: flex;
+      flex-direction: row;
+      // border: 1px solid #00000045;
+      // border-radius: 5px;
+      flex: 2;
+      .address {
+        flex: 1;
+        > div {
+          display: flex;
+          flex-direction: row;
+          .mat-form-field:first-child {
+            margin-right: 10px;
+          }
+        }
+        // .mat-form-field:nth-child(2),
+        // .mat-form-field:nth-child(3),
+        // .mat-form-field:nth-child(4),
+        // .mat-form-field:nth-child(5) {
+        //   display: inline-block !important;
+        //   width: 35%;
+        //   margin: 0px 10px;
+        // }
+      }
+      .comment {
+        flex: 1;
+      }
+    }
+  }
+  .buttonsWrapper {
+    display: flex;
+    // border: 1px solid red;
+    flex-direction: row;
+    justify-content: space-between;
+    button {
+      width: 10%;
+      height: 37px;
+      color: #ffffff;
+      outline: none;
+      background-color: #333;
+      border-radius: 0px;
+    }
   }
 }

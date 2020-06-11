@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-
+import { FormsModule } from "@angular/forms";
 import { ProductRoutingModule } from "./product-routing.module";
 import { ProductComponent } from "./product.component";
 import { MatSelectModule } from "@angular/material/select";
@@ -11,6 +11,15 @@ import { MatExpansionModule } from "@angular/material/expansion";
 
 @NgModule({
   declarations: [ProductComponent],
-  imports: [CommonModule, ProductRoutingModule, MatSelectModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatExpansionModule],
+  imports: [
+    CommonModule,
+    ProductRoutingModule,
+    FormsModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatExpansionModule,
+  ],
 })
 export class ProductModule {}
