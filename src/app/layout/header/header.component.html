@@ -18,7 +18,8 @@
 </mat-toolbar> -->
 <mdb-navbar class="navbar d-flex justify-content-center" style="height: 150px;">
   <mdb-navbar-brand
-    ><a class="navbar-brand" href="#"> <img src="assets/across.svg" style="height: 75px; width: auto; padding: 20px 0px;" alt="logo" /> </a
+    ><a class="navbar-brand" routerLink="/home">
+      <img src="assets/across.svg" style="height: 75px; width: auto; padding: 20px 0px;" alt="logo" /> </a
   ></mdb-navbar-brand>
 </mdb-navbar>
 
@@ -35,22 +36,22 @@
   <links>
     <!-- Links -->
     <ul class="navbar-nav mx-auto">
-      <li class="nav-item active">
-        <a href="/home" class="nav-link waves-light" mdbWavesEffect>Shop<span class="sr-only">(current)</span></a>
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect>Shop<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a href="/" class="nav-link waves-light" mdbWavesEffect>About</a>
+        <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect>About</a>
       </li>
       <li class="nav-item">
-        <a href="/" class="nav-link waves-light" mdbWavesEffect>FAQ</a>
+        <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect>FAQ</a>
       </li>
       <li class="nav-item">
-        <a href="/" class="nav-link waves-light" mdbWavesEffect>Contact Us</a>
+        <a routerLink="/home" class="nav-link waves-light" mdbWavesEffect>Contact Us</a>
       </li>
 
       <!-- Dropdown -->
     </ul>
-    <a href="/checkout" class="cart-button">
+    <a routerLink="/checkout" routerLinkActive="highlight-page" [routerLinkActiveOptions]="{ exact: true }" class="cart-button">
       <mat-icon aria-hidden="false" aria-label="Example home icon">shopping_cart</mat-icon>
       Cart
     </a>
