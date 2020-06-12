@@ -12,8 +12,15 @@
     display: flex;
 
     .carousel {
-      background-color: red;
+      // background-color: red;
+      width: 250px;
+      height: 250px;
+      border: 1px solid red;
       flex: 1;
+      lib-ngx-image-zoom {
+        width: 250px;
+        height: 250px;
+      }
     }
     .details {
       padding: 0;

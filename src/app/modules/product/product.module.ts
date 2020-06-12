@@ -8,7 +8,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { MatExpansionModule } from "@angular/material/expansion";
-
+import { NgxImageZoomModule } from "ngx-image-zoom";
 @NgModule({
   declarations: [ProductComponent],
   imports: [
@@ -20,6 +20,7 @@ import { MatExpansionModule } from "@angular/material/expansion";
     MatInputModule,
     MatButtonModule,
     MatExpansionModule,
+    NgxImageZoomModule,
   ],
 })
 export class ProductModule {}
