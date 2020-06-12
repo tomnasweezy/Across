@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Product } from "src/app/shared/models/product.model";
+import { CartService } from "src/app/core/services/cart.service";
 @Component({
   selector: "app-checkout",
   templateUrl: "./checkout.component.html",
@@ -22,13 +23,13 @@ export class CheckoutComponent implements OnInit {
   };
   realData: Product[] = [];
 
-  constructor() {}
-
-  ngOnInit(): void {
-    console.log(localStorage.getItem("product"));
-    let product = JSON.parse(localStorage.getItem("product"));
-    this.realData = product;
+  constructor(private cartService: CartService) {
+    this.cartService.getCartItemsObs().subscribe((res) => {
+      this.realData = res;
+    });
   }
+
+  ngOnInit(): void {}
   nextStep() {
     console.log(this.shippingData);
   }
@@ -41,12 +42,6 @@ export class CheckoutComponent implements OnInit {
     console.log(this.realData);
   }
   removeItem(item: Product) {
-    let newItems = this.realData.filter((res) => {
-      if (res.product_name !== item.product_name) {
-        return res;
-      }
-    });
-    this.realData = newItems;
-    localStorage.setItem("product", JSON.stringify(this.realData));
+    this.cartService.removeFromCart(item);
   }
 }

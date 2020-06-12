@@ -43,6 +43,7 @@ links {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   font-weight: bold;
   font-family: "Roboto";
@@ -50,8 +51,26 @@ links {
   letter-spacing: 0.3rem;
   font-size: 15px;
 
-  mat-icon {
+  .cart-icon {
     margin-right: 10px;
+  }
+
+  .item-added {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: rgb(253, 48, 48);
+    position: absolute;
+    bottom: -7px;
+    left: -7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      font-size: 10px;
+      letter-spacing: 0px;
+    }
   }
 }
 

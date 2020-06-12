@@ -30,6 +30,9 @@
   <div class="mr-auto" style="width: 91px;"></div>
   <a routerLink="/checkout" class="cart-button small-cart" routerLinkActive="highlight-page" [routerLinkActiveOptions]="{ exact: true }">
     <mat-icon aria-hidden="false" aria-label="Example home icon">shopping_cart</mat-icon>
+    <div class="item-added">
+      <p>{{ itemsNo }}</p>
+    </div>
   </a>
 
   <!-- Collapsible content -->
@@ -52,7 +55,10 @@
       <!-- Dropdown -->
     </ul>
     <a routerLink="/checkout" routerLinkActive="highlight-page" [routerLinkActiveOptions]="{ exact: true }" class="cart-button">
-      <mat-icon aria-hidden="false" aria-label="Example home icon">shopping_cart</mat-icon>
+      <mat-icon aria-hidden="false" aria-label="Example home icon" class="cart-icon">shopping_cart</mat-icon>
+      <div class="item-added" *ngIf="itemsNo > 0">
+        <span>{{ itemsNo }}</span>
+      </div>
       Cart
     </a>
 
