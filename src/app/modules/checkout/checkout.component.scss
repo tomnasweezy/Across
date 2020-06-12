@@ -14,14 +14,14 @@
       flex-direction: column;
       align-items: center;
       button {
-        background-color: black;
+        background-color: #e9c70a;
 
-        color: #e9c70a;
+        color: black;
         display: flex;
         outline: none;
         font-weight: normal;
         mat-icon {
-          color: #e9c70a;
+          color: black;
         }
       }
     }
