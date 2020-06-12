@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { ProductCardComponent } from "./components/product-card/product-card.component";
 import { MatCardModule } from "@angular/material/card";
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
   declarations: [CheckoutComponent, ProductCardComponent],
@@ -22,6 +23,7 @@ import { MatCardModule } from "@angular/material/card";
     MatInputModule,
     ReactiveFormsModule,
     MatCardModule,
+    MatIconModule,
     FormsModule,
   ],
 })

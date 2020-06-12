@@ -5,6 +5,26 @@
     margin-top: 8px;
     height: 100%;
     margin: 50px;
+    .noItems {
+      // border: 1px solid red;
+      width: 100%;
+      height: 300px;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      button {
+        background-color: black;
+
+        color: #e9c70a;
+        display: flex;
+        outline: none;
+        font-weight: normal;
+        mat-icon {
+          color: #e9c70a;
+        }
+      }
+    }
     .orderWrapper {
       width: 100%;
       display: flex;

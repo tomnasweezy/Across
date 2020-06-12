@@ -1,7 +1,16 @@
 <div class="stepperWrapper">
   <mat-horizontal-stepper [linear]="isLinear" #stepper>
     <mat-step [editable]="isEditable">
-      <div class="noItems" *ngIf="realData.length == 0"><h4>No Items 7alyn</h4></div>
+      <div class="noItems" *ngIf="realData.length == 0">
+        <h3>Cart is empty</h3>
+        <!-- <div class="shoppingCartbutton"> -->
+        <button routerLink="/" mat-raised-button>
+          <mat-icon aria-hidden="false" aria-label="Example home icon">shopping_bag</mat-icon>
+          Continue shopping
+          <!-- <a routerLink="/">Continue shopping </a> -->
+        </button>
+        <!-- </div> -->
+      </div>
       <div *ngIf="realData.length > 0" class="orderWrapper">
         <ng-template matStepLabel>Order Summary</ng-template>
         <div class="left">
