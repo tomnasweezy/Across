@@ -28,7 +28,7 @@
   <!-- Navbar brand -->
 
   <div class="mr-auto" style="width: 91px;"></div>
-  <a routerLink="/checkout" class="cart-button small-cart">
+  <a routerLink="/checkout" class="cart-button small-cart" routerLinkActive="highlight-page" [routerLinkActiveOptions]="{ exact: true }">
     <mat-icon aria-hidden="false" aria-label="Example home icon">shopping_cart</mat-icon>
   </a>
 
