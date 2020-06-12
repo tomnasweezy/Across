@@ -1,0 +1,51 @@
+.price_image_Wrapper {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+
+  .shirt-container {
+    height: 400px;
+    width: 85%;
+    background: grey;
+    margin: 20px auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: border 0.3s ease-in-out;
+    }
+    img:hover {
+      border: 10px solid #e9c70a;
+    }
+  }
+  h2 {
+    margin-top: 20px;
+    font-size: 25px;
+  }
+  h3 {
+    font-size: 23px;
+    color: 99ee9e;
+    /* color: #9E9E9E; */
+    /* font-weight: bold; */
+    color: #e9c70a;
+    margin-top: 6px;
+  }
+  .divider {
+    width: 110px;
+    border: 1px solid grey;
+  }
+  h2,
+  h3 {
+    position: relative;
+    /* bottom: -46px; */
+
+    width: 100%;
+    /* border: 1px solid red; */
+    text-align: center;
+  }
+}

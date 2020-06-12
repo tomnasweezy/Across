@@ -47,5 +47,6 @@ export class CheckoutComponent implements OnInit {
       }
     });
     this.realData = newItems;
+    localStorage.setItem("product", JSON.stringify(this.realData));
   }
 }

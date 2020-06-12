@@ -5,6 +5,7 @@ export class ProductData {
   public data: AvailableProduct[] = [
     {
       id: "1",
+      images: ["assets/shirts/t1.jpg"],
       product_name: "MoonyCat",
       price: 200,
       quantity: 2,
@@ -13,6 +14,7 @@ export class ProductData {
     },
     {
       id: "2",
+      images: ["assets/shirts/t2.jpg"],
       product_name: "monster",
       price: 250,
       quantity: 1,
@@ -21,6 +23,7 @@ export class ProductData {
     },
     {
       id: "3",
+      images: ["assets/shirts/t3.jpg", "assets/shirts/t3-back.jpg"],
       product_name: "Cat",
       price: 100,
       quantity: 2,

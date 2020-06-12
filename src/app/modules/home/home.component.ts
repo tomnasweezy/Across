@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Route } from "@angular/compiler/src/core";
 import { Router } from "@angular/router";
+import { AvailableProduct } from "src/app/shared/models/availableProducts.model";
+import { ProductData } from "src/app/data/productData";
 
 @Component({
   selector: "app-home",
@@ -8,11 +10,11 @@ import { Router } from "@angular/router";
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
+  products: AvailableProduct[];
   constructor(private router: Router) {}
 
-  ngOnInit(): void {}
-  goToProduct(event: MouseEvent) {
-    console.log(event.target);
-    this.router.navigateByUrl("product/123");
+  ngOnInit(): void {
+    let prd = new ProductData();
+    this.products = prd.data;
   }
 }
