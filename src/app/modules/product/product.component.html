@@ -10,18 +10,18 @@
       <div class="upper">
         <div class="carousel"></div>
         <div class="details">
-          <p class="tshirtName">{{ productD.product_name }}</p>
-          <p class="price">{{ productD.price }} EGP</p>
+          <p class="tshirtName">{{ product.product_name }}</p>
+          <p class="price">{{ product.price }} EGP</p>
           <mat-form-field appearance="outline">
             <mat-label>Size</mat-label>
             <mat-select [(ngModel)]="selectedSize">
-              <mat-option *ngFor="let size of productD.size" [value]="size">{{ size }}</mat-option>
+              <mat-option *ngFor="let size of product.size" [value]="size">{{ size }}</mat-option>
             </mat-select>
           </mat-form-field>
           <div class="colorWrapper">
             <p class="colorTitle">color</p>
             <span class="color"></span>
-            {{ productD.color }}
+            {{ product.color }}
           </div>
           <mat-form-field style="width: 90px !important;" appearance="outline">
             <mat-label>Quantity</mat-label>

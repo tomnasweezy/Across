@@ -18,8 +18,17 @@ export class ProductService {
 
   getAllProducts() {
     let pDataClass = new ProductData();
-    let products: Product[] = pDataClass.data;
-    return products;
+    let productData: Product[] = pDataClass.data;
+    return productData;
+  }
+
+  getOneProduct(id: string) {
+    let oneProduct = this.products.filter((item) => {
+      if (item.id == id) {
+        return item;
+      }
+    });
+    return oneProduct;
   }
 
   getAllProductsObs() {
