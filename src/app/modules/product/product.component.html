@@ -21,9 +21,13 @@
             </mat-select>
           </mat-form-field>
           <div class="colorWrapper">
-            <p class="colorTitle">color</p>
-            <span class="color"></span>
-            {{ product.color }}
+            <p class="colorTitle">Color:</p>
+            <div *ngFor="let scolor of product.color">
+              <label [for]="scolor" class="color-choice">
+                <input [(ngModel)]="selectedColor" [id]="scolor" type="radio" name="color" [value]="scolor" class="color-option" />
+                <div [className]="'color ' + scolor"></div>
+              </label>
+            </div>
           </div>
           <mat-form-field style="width: 90px !important;" appearance="outline">
             <mat-label>Quantity</mat-label>
