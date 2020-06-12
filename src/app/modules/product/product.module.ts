@@ -9,6 +9,8 @@ import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { NgxImageZoomModule } from "ngx-image-zoom";
+import { MDBBootstrapModule } from "angular-bootstrap-md";
+import { NgxGalleryModule } from "ngx-gallery-9";
 @NgModule({
   declarations: [ProductComponent],
   imports: [
@@ -20,7 +22,7 @@ import { NgxImageZoomModule } from "ngx-image-zoom";
     MatInputModule,
     MatButtonModule,
     MatExpansionModule,
-    NgxImageZoomModule,
+    NgxGalleryModule,
   ],
 })
 export class ProductModule {}

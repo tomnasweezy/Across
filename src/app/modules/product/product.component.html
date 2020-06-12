@@ -8,8 +8,8 @@
   <body>
     <div class="wrapper">
       <div class="upper">
-        <div class="carousel">
-          <lib-ngx-image-zoom thumbImage="assets/shirts/t1.jpg" fullImage="assets/shirts/t1.jpg"></lib-ngx-image-zoom>
+        <div class="image-wrapper">
+          <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
         </div>
         <div class="details">
           <h3 class="tshirtName">{{ product.product_name }}</h3>
@@ -30,36 +30,35 @@
             <input [(ngModel)]="selectedQuantity" matInput class="quantityInput" type="number" value="1" min="1" max="5" />
           </mat-form-field>
           <button mat-raised-button (click)="addToCart()">Add to cart</button>
+
+          <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Product Info
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Return & refund Policy
+                </mat-panel-title>
+                <mat-panel-description> </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p>I'm visible because I am open</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Shipping
+                </mat-panel-title>
+                <mat-panel-description> </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p>I'm visible because I am open</p>
+            </mat-expansion-panel>
+          </mat-accordion>
         </div>
-      </div>
-      <div class="lower">
-        <mat-accordion class="example-headers-align" multi>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Product Info
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-          </mat-expansion-panel>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Return & refund Policy
-              </mat-panel-title>
-              <mat-panel-description> </mat-panel-description>
-            </mat-expansion-panel-header>
-            <p>I'm visible because I am open</p>
-          </mat-expansion-panel>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Shipping
-              </mat-panel-title>
-              <mat-panel-description> </mat-panel-description>
-            </mat-expansion-panel-header>
-            <p>I'm visible because I am open</p>
-          </mat-expansion-panel>
-        </mat-accordion>
       </div>
     </div>
   </body>

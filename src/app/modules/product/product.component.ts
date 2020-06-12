@@ -5,6 +5,8 @@ import { Product } from "src/app/shared/models/product.model";
 import { CartService } from "src/app/core/services/cart.service";
 import { ProductService } from "src/app/core/services/product.service";
 import { Location } from "@angular/common";
+import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from "ngx-gallery-9";
+
 @Component({
   selector: "app-product",
   templateUrl: "./product.component.html",
@@ -15,6 +17,8 @@ export class ProductComponent implements OnInit {
   selectedColor: string = "black";
   selectedQuantity: number = 1;
   selectedSize: string;
+  galleryOptions: NgxGalleryOptions[];
+  galleryImages: NgxGalleryImage[];
 
   constructor(
     private aRouter: ActivatedRoute,
@@ -30,13 +34,36 @@ export class ProductComponent implements OnInit {
         this.selectedColor = this.product.color[0];
         this.selectedQuantity = 1;
         this.selectedSize = this.product.size[0];
+        let g = [];
+        for (let image of this.product.images) {
+          let p = {
+            big: image,
+            medium: image,
+            small: image,
+          };
+          g.push(p);
+        }
+        console.log(g);
+        this.galleryImages = g;
       } else {
         this.location.back();
       }
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.galleryOptions = [
+      {
+        width: "100%",
+        height: "100%",
+        thumbnailsColumns: 4,
+        imageSwipe: true,
+        imageAnimation: NgxGalleryAnimation.Slide,
+        previewZoom: true,
+        previewZoomStep: 1,
+      },
+    ];
+  }
 
   addToCart() {
     let product: CartItem = {
