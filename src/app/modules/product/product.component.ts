@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { CookieService } from "ngx-cookie-service";
 import { Product } from "src/app/shared/models/product.model";
 import { ActivatedRoute } from "@angular/router";
 import { ProductData } from "src/app/data/productData";
@@ -15,7 +14,7 @@ export class ProductComponent implements OnInit {
   selectedQuantity: number = 1;
   selectedSize: string;
 
-  constructor(private cookieService: CookieService, private aRouter: ActivatedRoute) {
+  constructor(private aRouter: ActivatedRoute) {
     this.aRouter.params.subscribe((parms) => {
       let pi = parms["productId"];
       let availableProduct = new ProductData();

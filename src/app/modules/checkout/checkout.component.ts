@@ -1,8 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { nullSafeIsEquivalent } from "@angular/compiler/src/output/output_ast";
 import { Product } from "src/app/shared/models/product.model";
-import { CookieService } from "ngx-cookie-service";
 @Component({
   selector: "app-checkout",
   templateUrl: "./checkout.component.html",
@@ -25,7 +22,7 @@ export class CheckoutComponent implements OnInit {
   };
   realData: Product[] = [];
 
-  constructor(private cookieService: CookieService) {}
+  constructor() {}
 
   ngOnInit(): void {
     console.log(localStorage.getItem("product"));
