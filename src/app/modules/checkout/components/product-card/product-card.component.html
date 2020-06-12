@@ -5,9 +5,16 @@
     </div>
     <mat-card-content>
       <div class="details">
-        <p class="tshirtName">{{ data.product_name }}</p>
-        <p class="price">{{ data.price }}</p>
-        <p class="color">{{ data.color }}</p>
+        <h5 class="tshirtName">{{ data.product_name }}</h5>
+        <div class="secondary-details">
+          <p class="color">
+            Color:
+            <span [className]="'color-indicator ' + data.color"></span>
+            {{ data.color }}
+          </p>
+          <p class="size">Size: {{ data.size }}</p>
+        </div>
+        <h6 class="price">{{ data.price }} LE</h6>
       </div>
       <div class="Quantity">
         <mat-form-field style="width: 90px !important;" appearance="outline">

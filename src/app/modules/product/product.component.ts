@@ -11,7 +11,10 @@ import { AvailableProduct } from "src/app/shared/models/availableProducts.model"
 })
 export class ProductComponent implements OnInit {
   productD: AvailableProduct;
-  selectedProduct: any;
+  selectedColor: string = "black";
+  selectedQuantity: number = 1;
+  selectedSize: string;
+
   constructor(private cookieService: CookieService, private aRouter: ActivatedRoute) {
     this.aRouter.params.subscribe((parms) => {
       let pi = parms["productId"];
@@ -21,25 +24,33 @@ export class ProductComponent implements OnInit {
           return res;
         }
       })[0];
-      console.log("okok", this.productD);
+      this.selectedColor = this.productD.color[0];
+      this.selectedQuantity = 1;
+      this.selectedSize = this.productD.size[0];
     });
   }
 
-  ngOnInit(): void {
-    this.selectedProduct["product_name"] = this.productD["product_name"];
-    this.selectedProduct.id = this.productD.id;
-    this.selectedProduct.price = this.productD.price;
-    console.log("a7a", this.selectedProduct);
-  }
+  ngOnInit(): void {}
+
   addToCart() {
+    let product: Product = {
+      id: this.productD.id,
+      price: this.productD.price,
+      product_name: this.productD.product_name,
+      color: this.selectedColor,
+      quantity: this.selectedQuantity,
+      size: this.selectedSize,
+    };
+    let today = new Date();
+    let tomorrow = today.setDate(today.getDate() + 1);
     if (this.cookieService.get("product")) {
       let currentProducts: Product[] = JSON.parse(this.cookieService.get("product"));
-      currentProducts.push(this.selectedProduct);
-      this.cookieService.set("product", JSON.stringify(currentProducts));
+      currentProducts.push(product);
+      this.cookieService.set("product", JSON.stringify(currentProducts), tomorrow, "/");
     } else {
       let allProducts = [];
-      allProducts.push(this.selectedProduct);
-      this.cookieService.set("product", JSON.stringify(allProducts));
+      allProducts.push(product);
+      this.cookieService.set("product", JSON.stringify(allProducts), tomorrow, "/");
     }
   }
 }
