@@ -3,6 +3,7 @@ import { Product } from "src/app/shared/models/product.model";
 import { ActivatedRoute } from "@angular/router";
 import { ProductData } from "src/app/data/productData";
 import { AvailableProduct } from "src/app/shared/models/availableProducts.model";
+import { CartService } from "src/app/core/services/cart.service";
 @Component({
   selector: "app-product",
   templateUrl: "./product.component.html",
@@ -14,7 +15,7 @@ export class ProductComponent implements OnInit {
   selectedQuantity: number = 1;
   selectedSize: string;
 
-  constructor(private aRouter: ActivatedRoute) {
+  constructor(private aRouter: ActivatedRoute, private cartService: CartService) {
     this.aRouter.params.subscribe((parms) => {
       let pi = parms["productId"];
       let availableProduct = new ProductData();
@@ -40,14 +41,7 @@ export class ProductComponent implements OnInit {
       quantity: this.selectedQuantity,
       size: this.selectedSize,
     };
-    if (localStorage.getItem("product")) {
-      let currentProducts: Product[] = JSON.parse(localStorage.getItem("product"));
-      currentProducts.push(product);
-      localStorage.setItem("product", JSON.stringify(currentProducts));
-    } else {
-      let allProducts = [];
-      allProducts.push(product);
-      localStorage.setItem("product", JSON.stringify(allProducts));
-    }
+
+    this.cartService.addToCart(product);
   }
 }
