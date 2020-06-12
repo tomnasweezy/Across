@@ -24,16 +24,20 @@
     }
     .details {
       padding: 0;
-      margin: 20px;
-      margin-top: 10px;
+      padding: 0px 25px;
       display: flex;
       flex-direction: column;
       flex: 1;
+      font-family: "Roboto";
+
+      .tshirtName {
+        font-weight: bold;
+      }
+
       p {
         // width: 450px;
         // margin: 20px;
         // font-weight: bold;
-        font-family: "Roboto";
         // text-transform: uppercase;
         font-size: 20px;
       }
@@ -54,7 +58,6 @@
         width: 405px;
         height: 46px;
         outline: none;
-        margin-left: 10px;
         color: black;
         background-color: #e9c70a;
       }
