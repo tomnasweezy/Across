@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Product } from "src/app/shared/models/product.model";
+import { CartItem } from "src/app/shared/models/cart.model";
 import { ActivatedRoute } from "@angular/router";
 import { ProductData } from "src/app/data/productData";
-import { AvailableProduct } from "src/app/shared/models/availableProducts.model";
+import { Product } from "src/app/shared/models/product.model";
 import { CartService } from "src/app/core/services/cart.service";
 @Component({
   selector: "app-product",
@@ -10,7 +10,7 @@ import { CartService } from "src/app/core/services/cart.service";
   styleUrls: ["./product.component.scss"],
 })
 export class ProductComponent implements OnInit {
-  productD: AvailableProduct;
+  productD: Product;
   selectedColor: string = "black";
   selectedQuantity: number = 1;
   selectedSize: string;
@@ -33,7 +33,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {}
 
   addToCart() {
-    let product: Product = {
+    let product: CartItem = {
       id: this.productD.id,
       price: this.productD.price,
       product_name: this.productD.product_name,

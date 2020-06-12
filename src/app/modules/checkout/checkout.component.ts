@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Product } from "src/app/shared/models/product.model";
+import { CartItem } from "src/app/shared/models/cart.model";
 import { CartService } from "src/app/core/services/cart.service";
 @Component({
   selector: "app-checkout",
@@ -21,7 +21,7 @@ export class CheckoutComponent implements OnInit {
     flatnumber: null,
     comment: null,
   };
-  realData: Product[] = [];
+  realData: CartItem[] = [];
 
   constructor(private cartService: CartService) {
     this.cartService.getCartItemsObs().subscribe((res) => {
@@ -33,7 +33,7 @@ export class CheckoutComponent implements OnInit {
   nextStep() {
     console.log(this.shippingData);
   }
-  updateQuantity(item: Product) {
+  updateQuantity(item: CartItem) {
     for (let current of this.realData) {
       if (current.product_name === item.product_name) {
         current = item;
@@ -41,7 +41,7 @@ export class CheckoutComponent implements OnInit {
     }
     console.log(this.realData);
   }
-  removeItem(item: Product) {
+  removeItem(item: CartItem) {
     this.cartService.removeFromCart(item);
   }
 }

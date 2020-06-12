@@ -15,7 +15,7 @@
         <ng-template matStepLabel>Order Summary</ng-template>
         <div class="left">
           <ng-container *ngFor="let item of realData">
-            <app-product-card (quantity)="updateQuantity($event)" [productData]="item" (delete)="removeItem($event)"></app-product-card>
+            <app-cart-card (quantity)="updateQuantity($event)" [productData]="item" (delete)="removeItem($event)"></app-cart-card>
           </ng-container>
           <!-- <app-product-card></app-product-card>
           <app-product-card></app-product-card> -->

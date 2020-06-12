@@ -1,13 +1,13 @@
 import { Injectable } from "@angular/core";
-import { Subject, BehaviorSubject } from "rxjs";
-import { Product } from "src/app/shared/models/product.model";
+import { BehaviorSubject } from "rxjs";
+import { CartItem } from "src/app/shared/models/cart.model";
 
 @Injectable({
   providedIn: "root",
 })
 export class CartService {
-  private cart$: BehaviorSubject<Product[]>;
-  private cart: Product[];
+  private cart$: BehaviorSubject<CartItem[]>;
+  private cart: CartItem[];
 
   constructor() {
     let savedCart = this.getCartItems();
@@ -15,13 +15,13 @@ export class CartService {
     this.cart = savedCart;
   }
 
-  addToCart(product: Product) {
+  addToCart(product: CartItem) {
     this.cart.push(product);
     localStorage.setItem("product", JSON.stringify(this.cart));
     this.cart$.next(this.cart);
   }
 
-  removeFromCart(product: Product) {
+  removeFromCart(product: CartItem) {
     this.cart = this.cart.filter((res) => {
       if (res.product_name !== product.product_name) {
         return res;
@@ -32,7 +32,7 @@ export class CartService {
   }
 
   getCartItems() {
-    let products: Product[];
+    let products: CartItem[];
     if (localStorage.getItem("product")) {
       products = JSON.parse(localStorage.getItem("product"));
     } else {

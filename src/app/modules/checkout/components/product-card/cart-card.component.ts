@@ -1,13 +1,13 @@
 import { Component, OnInit, Output, ElementRef, EventEmitter, Input } from "@angular/core";
-import { Product } from "src/app/shared/models/product.model";
+import { CartItem } from "src/app/shared/models/cart.model";
 
 @Component({
-  selector: "app-product-card",
-  templateUrl: "./product-card.component.html",
-  styleUrls: ["./product-card.component.scss"],
+  selector: "app-cart-card",
+  templateUrl: "./cart-card.component.html",
+  styleUrls: ["./cart-card.component.scss"],
 })
 export class ProductCardComponent implements OnInit {
-  @Input("productData") data: Product;
+  @Input("productData") data: CartItem;
   @Output("delete") deleteItem = new EventEmitter();
   @Output("quantity") updateQuantity = new EventEmitter();
   constructor() {}

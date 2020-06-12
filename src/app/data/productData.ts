@@ -1,8 +1,7 @@
 import { Product } from "../shared/models/product.model";
-import { AvailableProduct } from "../shared/models/availableProducts.model";
 
 export class ProductData {
-  public data: AvailableProduct[] = [
+  public data: Product[] = [
     {
       id: "1",
       images: ["assets/shirts/t1.jpg"],

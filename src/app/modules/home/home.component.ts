@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Route } from "@angular/compiler/src/core";
 import { Router } from "@angular/router";
-import { AvailableProduct } from "src/app/shared/models/availableProducts.model";
+import { Product } from "src/app/shared/models/product.model";
 import { ProductData } from "src/app/data/productData";
+import { ProductService } from "src/app/core/services/product.service";
 
 @Component({
   selector: "app-home",
@@ -10,11 +10,12 @@ import { ProductData } from "src/app/data/productData";
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  products: AvailableProduct[];
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {
-    let prd = new ProductData();
-    this.products = prd.data;
+  products: Product[];
+  constructor(private productService: ProductService) {
+    this.productService.getAllProductsObs().subscribe((res) => {
+      this.products = res;
+    });
   }
+
+  ngOnInit(): void {}
 }
