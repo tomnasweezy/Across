@@ -41,16 +41,14 @@ export class ProductComponent implements OnInit {
       quantity: this.selectedQuantity,
       size: this.selectedSize,
     };
-    let today = new Date();
-    let tomorrow = today.setDate(today.getDate() + 1);
-    if (this.cookieService.get("product")) {
-      let currentProducts: Product[] = JSON.parse(this.cookieService.get("product"));
+    if (localStorage.getItem("product")) {
+      let currentProducts: Product[] = JSON.parse(localStorage.getItem("product"));
       currentProducts.push(product);
-      this.cookieService.set("product", JSON.stringify(currentProducts), tomorrow, "/");
+      localStorage.setItem("product", JSON.stringify(currentProducts));
     } else {
       let allProducts = [];
       allProducts.push(product);
-      this.cookieService.set("product", JSON.stringify(allProducts), tomorrow, "/");
+      localStorage.setItem("product", JSON.stringify(allProducts));
     }
   }
 }

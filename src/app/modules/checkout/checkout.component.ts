@@ -28,8 +28,8 @@ export class CheckoutComponent implements OnInit {
   constructor(private cookieService: CookieService) {}
 
   ngOnInit(): void {
-    console.log(this.cookieService.get("product"));
-    let product = JSON.parse(this.cookieService.get("product"));
+    console.log(localStorage.getItem("product"));
+    let product = JSON.parse(localStorage.getItem("product"));
     this.realData = product;
   }
   nextStep() {
