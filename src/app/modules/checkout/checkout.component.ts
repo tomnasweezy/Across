@@ -57,7 +57,6 @@ export class CheckoutComponent implements OnInit {
     // if (clear) {
     this.stepper.next();
     // }
-    // console.log(this.shippingData);
   }
   edit() {
     this.stepper.previous();
