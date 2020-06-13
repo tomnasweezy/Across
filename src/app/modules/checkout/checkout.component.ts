@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { CartItem } from "src/app/shared/models/cart.model";
 import { CartService } from "src/app/core/services/cart.service";
 @Component({
@@ -7,8 +7,12 @@ import { CartService } from "src/app/core/services/cart.service";
   styleUrls: ["./checkout.component.scss"],
 })
 export class CheckoutComponent implements OnInit {
-  isLinear = true;
-  isEditable = false;
+  @ViewChild("stepper") stepper;
+  step = 0;
+  typesOfpayment: string[] = ["cash on delivery", "Credit Card"];
+  isLinear = false;
+  isEditable = true;
+  panelOpenState = false;
 
   shippingData = {
     fullname: null,
@@ -30,8 +34,33 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextSteps() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
+  }
   nextStep() {
-    console.log(this.shippingData);
+    // let clear = true;
+    // for (let [i, v] of Object.entries(this.shippingData)) {
+    //   if (i !== "comment") {
+    //     if (v == null || v == undefined || v.length == 0) {
+    //       clear = false;
+    //     }
+    //   }
+    // }
+    // if (clear) {
+    this.stepper.next();
+    // }
+    // console.log(this.shippingData);
+  }
+  edit() {
+    this.stepper.previous();
   }
   updateQuantity(item: CartItem) {
     for (let current of this.realData) {

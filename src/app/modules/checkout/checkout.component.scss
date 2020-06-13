@@ -1,122 +1,94 @@
-.stepperWrapper {
-  width: 100%;
-  margin: auto;
-  .mat-stepper-horizontal {
-    margin-top: 8px;
-    height: 100%;
-    margin: 50px;
-    .noItems {
-      // border: 1px solid red;
+// .stepperWrapper {
+//   width: 100%;
+//   margin: auto;
+.mat-stepper-horizontal {
+  margin-top: 8px;
+  height: 100%;
+  margin: 50px;
+  .noItems {
+    // border: 1px solid red;
+    width: 100%;
+    height: 300px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    button {
+      background-color: #e9c70a;
+
+      color: black;
+      display: flex;
+      outline: none;
+      font-weight: normal;
+      mat-icon {
+        color: black;
+      }
+    }
+  }
+  .orderWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    .left {
+      flex: 1;
+    }
+    .right {
       width: 100%;
-      height: 300px;
-      justify-content: center;
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      button {
-        background-color: #e9c70a;
-
-        color: black;
-        display: flex;
-        outline: none;
-        font-weight: normal;
-        mat-icon {
-          color: black;
-        }
+      justify-content: space-evenly;
+      h1 {
+        margin: 29px;
       }
-    }
-    .orderWrapper {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
-      .left {
-        // flex: 1;
+      table {
+        margin: 10px;
+        height: 113px;
+        width: 70%;
+        text-align: center;
       }
-      .right {
+      .nextButton {
         width: 100%;
-
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-        h1 {
-          margin: 29px;
-        }
-        table {
-          margin: 10px;
-          height: 113px;
-          width: 70%;
-          text-align: center;
-        }
-        .nextButton {
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          margin-top: 50px;
-          button {
-            width: 42%;
-            height: 46px;
-            color: #ffffff;
-            outline: none;
-            background-color: #333;
-            border-radius: 0px;
-          }
+        justify-content: center;
+        margin-top: 50px;
+        button {
+          width: 42%;
+          height: 46px;
+          color: #ffffff;
+          outline: none;
+          background-color: #333;
+          border-radius: 0px;
         }
       }
     }
   }
-
-  .shippinginfo {
-    padding: 40px 0px;
-
-    flex-direction: row;
-    display: flex;
-    .mat-form-field {
-      display: block !important;
-    }
-
-    .personal,
-    .address,
-    .comment {
-      padding: 0px 24px;
-
-      h4 {
-        margin-bottom: 30px;
-      }
-    }
-    .personal {
-      flex: 1;
-      margin-right: 25px;
-    }
-
-    .shippingaddrese {
-      display: flex;
-      flex-direction: row;
-      flex: 2;
-      .address {
-        flex: 1;
-        > div {
-          display: flex;
-          flex-direction: row;
-          .mat-form-field:first-child {
-            margin-right: 10px;
-          }
-        }
-      }
-      .comment {
-        flex: 1;
-      }
-    }
+  .example-headers-align {
+    margin-top: 40px;
+    width: 100%;
   }
-  .buttonsWrapper {
+  mat-panel-title {
+    font-size: 24px;
+  }
+  .shipping-address-table {
+    width: 100%;
+  }
+  .editIcon {
+    float: right;
+    cursor: pointer;
+  }
+
+  .buyNowButton {
+    width: 100%;
     display: flex;
 
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+
     button {
-      width: 10%;
-      height: 37px;
+      width: 42%;
+      height: 46px;
       color: #ffffff;
       outline: none;
       background-color: #333;
@@ -124,3 +96,64 @@
     }
   }
 }
+.cashondeli {
+  background-color: #e9c70a;
+}
+
+.shippinginfo {
+  padding: 40px 0px;
+
+  flex-direction: row;
+  display: flex;
+  .mat-form-field {
+    display: block !important;
+  }
+
+  .personal,
+  .address,
+  .comment {
+    padding: 0px 24px;
+
+    h4 {
+      margin-bottom: 30px;
+    }
+  }
+  .personal {
+    flex: 1;
+    margin-right: 25px;
+  }
+
+  .shippingaddrese {
+    display: flex;
+    flex-direction: row;
+    flex: 2;
+    .address {
+      flex: 1;
+      > div {
+        display: flex;
+        flex-direction: row;
+        .mat-form-field:first-child {
+          margin-right: 10px;
+        }
+      }
+    }
+    .comment {
+      flex: 1;
+    }
+  }
+}
+.buttonsWrapper {
+  display: flex;
+
+  flex-direction: row;
+  justify-content: space-between;
+  button {
+    width: 10%;
+    height: 37px;
+    color: #ffffff;
+    outline: none;
+    background-color: #333;
+    border-radius: 0px;
+  }
+}
+// }

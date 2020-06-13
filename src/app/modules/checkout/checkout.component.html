@@ -1,132 +1,208 @@
-<div class="stepperWrapper">
-  <mat-horizontal-stepper [linear]="isLinear" #stepper>
-    <mat-step [editable]="isEditable">
-      <div class="noItems" *ngIf="realData.length == 0">
-        <h3>Cart is empty</h3>
-        <!-- <div class="shoppingCartbutton"> -->
-        <button routerLink="/" mat-raised-button>
-          <mat-icon aria-hidden="false" aria-label="Example home icon">shopping_bag</mat-icon>
-          Continue shopping
-          <!-- <a routerLink="/">Continue shopping </a> -->
-        </button>
-        <!-- </div> -->
-      </div>
-      <div *ngIf="realData.length > 0" class="orderWrapper">
-        <ng-template matStepLabel>Order Summary</ng-template>
-        <div class="left">
-          <ng-container *ngFor="let item of realData">
-            <app-cart-card (quantity)="updateQuantity($event)" [productData]="item" (delete)="removeItem($event)"></app-cart-card>
-          </ng-container>
-          <!-- <app-product-card></app-product-card>
+<!-- <div class="stepperWrapper"> -->
+<mat-horizontal-stepper linear="true" #stepper>
+  <mat-step [editable]="isEditable">
+    <div class="noItems" *ngIf="realData.length == 0">
+      <h3>Cart is empty</h3>
+      <!-- <div class="shoppingCartbutton"> -->
+      <button routerLink="/" mat-raised-button>
+        <mat-icon aria-hidden="false" aria-label="Example home icon">shopping_bag</mat-icon>
+        Continue shopping
+        <!-- <a routerLink="/">Continue shopping </a> -->
+      </button>
+      <!-- </div> -->
+    </div>
+    <div *ngIf="realData.length > 0" class="orderWrapper">
+      <ng-template matStepLabel>Order Summary</ng-template>
+      <div class="left">
+        <ng-container *ngFor="let item of realData">
+          <app-cart-card (quantity)="updateQuantity($event)" [productData]="item" (delete)="removeItem($event)"></app-cart-card>
+        </ng-container>
+        <!-- <app-product-card></app-product-card>
           <app-product-card></app-product-card> -->
-        </div>
-        <div class="right">
-          <h1>Order Summary</h1>
-          <table>
-            <tr>
-              <th>Subtotal</th>
-              <td>200 LE</td>
-            </tr>
-            <tr>
-              <th>Shipping</th>
-              <td>45 LE</td>
-            </tr>
-            <tr></tr>
-            <tr></tr>
-            <tr></tr>
-            <tr>
-              <th>Total</th>
-              <th>445 LE</th>
-            </tr>
-          </table>
-          <div class="nextButton">
-            <button mat-raised-button matStepperNext>Next</button>
-            <!-- <button mat-button matStepperNext>Next</button> -->
-          </div>
+      </div>
+      <div class="right">
+        <h1>Order Summary</h1>
+        <table>
+          <tr>
+            <th>Subtotal</th>
+            <td>200 LE</td>
+          </tr>
+          <tr>
+            <th>Shipping</th>
+            <td>45 LE</td>
+          </tr>
+          <tr></tr>
+          <tr></tr>
+          <tr></tr>
+          <tr>
+            <th>Total</th>
+            <th>445 LE</th>
+          </tr>
+        </table>
+        <div class="nextButton">
+          <button mat-raised-button matStepperNext>Next</button>
+          <!-- <button mat-button matStepperNext>Next</button> -->
         </div>
       </div>
-    </mat-step>
-    <mat-step [editable]="isEditable">
-      <!-- <form [formGroup]="secondFormGroup"> -->
-      <ng-template matStepLabel>Shipping address</ng-template>
-      <div class="shippinginfo">
-        <div class="personal">
-          <h4 style="font-weight: bold;">Personal info</h4>
-          <mat-form-field>
-            <mat-label>Full Name</mat-label>
-            <input [(ngModel)]="shippingData.fullname" matInput name="fullname" placeholder="John Doe" required />
-          </mat-form-field>
+    </div>
+  </mat-step>
+  <mat-step [editable]="isEditable">
+    <ng-template matStepLabel>Shipping address</ng-template>
+    <div class="shippinginfo">
+      <div class="personal">
+        <h4 style="font-weight: bold;">Personal info</h4>
+        <mat-form-field>
+          <mat-label>Full Name</mat-label>
+          <input [(ngModel)]="shippingData.fullname" matInput name="fullname" placeholder="John Doe" required />
+        </mat-form-field>
 
-          <mat-form-field>
-            <mat-label>Email</mat-label>
-            <input [(ngModel)]="shippingData.email" matInput name="email" placeholder="John Doe" required />
-          </mat-form-field>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input [(ngModel)]="shippingData.email" matInput name="email" placeholder="John Doe" required />
+        </mat-form-field>
 
-          <mat-form-field>
-            <mat-label>Phone Number</mat-label>
-            <input [(ngModel)]="shippingData.phonenumber" matInput name="phonenumber" placeholder="John Doe" required />
-          </mat-form-field>
-        </div>
+        <mat-form-field>
+          <mat-label>Phone Number</mat-label>
+          <input [(ngModel)]="shippingData.phonenumber" matInput name="phonenumber" placeholder="John Doe" required />
+        </mat-form-field>
+      </div>
 
-        <div class="shippingaddrese">
-          <div class="address">
-            <h4 style="font-weight: bold;">Shipping info</h4>
+      <div class="shippingaddrese">
+        <div class="address">
+          <h4 style="font-weight: bold;">Shipping info</h4>
+          <mat-form-field>
+            <mat-label>Street Address</mat-label>
+            <input [(ngModel)]="shippingData.streetaddress" matInput name="streetaddress" placeholder="John Doe" required />
+          </mat-form-field>
+          <div>
             <mat-form-field>
-              <mat-label>Street Address</mat-label>
-              <input [(ngModel)]="shippingData.streetaddress" matInput name="streetaddress" placeholder="John Doe" required />
+              <mat-label>Address landmark</mat-label>
+              <input [(ngModel)]="shippingData.landmarkaddress" matInput name="streetaddress" placeholder="John Doe" required />
             </mat-form-field>
-            <div>
-              <mat-form-field>
-                <mat-label>Address landmark</mat-label>
-                <input [(ngModel)]="shippingData.landmarkaddress" matInput name="streetaddress" placeholder="John Doe" required />
-              </mat-form-field>
 
-              <mat-form-field>
-                <mat-label>Building number</mat-label>
-                <input [(ngModel)]="shippingData.buildingnumber" matInput name="streetaddress" placeholder="John Doe" required />
-              </mat-form-field>
-            </div>
-            <div>
-              <mat-form-field>
-                <mat-label>Floor number</mat-label>
-                <input [(ngModel)]="shippingData.floornumber" matInput name="streetaddress" placeholder="John Doe" required />
-              </mat-form-field>
-
-              <mat-form-field>
-                <mat-label>Flat number</mat-label>
-                <input [(ngModel)]="shippingData.flatnumber" matInput name="streetaddress" placeholder="John Doe" required />
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="comment">
-            <h4 style="font-weight: bold; visibility: hidden;">Personal info</h4>
             <mat-form-field>
-              <mat-label>Comments</mat-label>
-              <textarea
-                [(ngModel)]="shippingData.comment"
-                rows="9"
-                matInput
-                name="streetaddress"
-                placeholder="John Doe"
-                required
-              ></textarea>
+              <mat-label>Building number</mat-label>
+              <input [(ngModel)]="shippingData.buildingnumber" matInput name="streetaddress" placeholder="John Doe" required />
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <mat-label>Floor number</mat-label>
+              <input [(ngModel)]="shippingData.floornumber" matInput name="streetaddress" placeholder="John Doe" required />
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Flat number</mat-label>
+              <input [(ngModel)]="shippingData.flatnumber" matInput name="streetaddress" placeholder="John Doe" required />
             </mat-form-field>
           </div>
         </div>
+        <div class="comment">
+          <h4 style="font-weight: bold; visibility: hidden;">Personal info</h4>
+          <mat-form-field>
+            <mat-label>Comments</mat-label>
+            <textarea [(ngModel)]="shippingData.comment" rows="9" matInput name="streetaddress" placeholder="John Doe" required></textarea>
+          </mat-form-field>
+        </div>
       </div>
-      <div class="buttonsWrapper">
-        <button mat-raised-button matStepperPrevious>Back</button>
-        <button mat-raised-button matStepperNext (click)="nextStep()">Next</button>
-      </div>
-      <!-- </form> -->
-    </mat-step>
-    <mat-step>
+    </div>
+    <div class="buttonsWrapper">
+      <button mat-raised-button matStepperPrevious>Back</button>
+      <button mat-raised-button (click)="nextStep()">Next</button>
+    </div>
+  </mat-step>
+  <mat-step>
+    <div class="orderWrapper">
       <ng-template matStepLabel>Done</ng-template>
-      <p>You are now done.</p>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+      <div class="left">
+        <mat-accordion class="example-headers-align" multi>
+          <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Shipping Address
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <table class="shipping-address-table">
+              <tr>
+                <th>Full name</th>
+                <td>Ahmed hisham Alsweasy</td>
+              </tr>
+              <tr>
+                <th><mat-icon aria-hidden="false" aria-label="Example home icon">phone</mat-icon></th>
+                <td>01100781855</td>
+              </tr>
+              <tr>
+                <th>Building No:</th>
+                <td>41</td>
+              </tr>
+              <tr>
+                <th>Floor No:</th>
+                <td>3</td>
+              </tr>
+              <tr>
+                <th>Flat No:</th>
+                <td>9</td>
+              </tr>
+              <tr>
+                <th>Address</th>
+                <td>Ahmed housni beside gennah mall</td>
+              </tr>
+              <tr>
+                <th>Landmark</th>
+                <td>beside Ahmed housni beside gennah mall</td>
+              </tr>
+              <tr>
+                <th>Email</th>
+                <td>Ahmed.h.alsweasy@gmail.com</td>
+              </tr>
+              <tr>
+                <th>Comment</th>
+                <td>i have not comment for now</td>
+              </tr>
+            </table>
+            <mat-icon class="editIcon" (click)="edit()">edit</mat-icon>
+          </mat-expansion-panel>
+          <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Payment Method
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-list role="list">
+              <mat-list-item role="listitem" class="cashondeli">cash on delivery</mat-list-item>
+              <mat-list-item role="listitem">Credit Card</mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
+        </mat-accordion>
       </div>
-    </mat-step>
-  </mat-horizontal-stepper>
-</div>
+      <div class="right">
+        <h1>Order Summary</h1>
+        <table>
+          <tr>
+            <th>Subtotal</th>
+            <td>200 LE</td>
+          </tr>
+          <tr>
+            <th>Shipping</th>
+            <td>45 LE</td>
+          </tr>
+          <tr></tr>
+          <tr></tr>
+          <tr></tr>
+          <tr>
+            <th>Total</th>
+            <th>445 LE</th>
+          </tr>
+        </table>
+        <div class="buyNowButton">
+          <!-- <button mat-button matStepperPrevious>Back</button> -->
+          <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
+          <button mat-raised-button matStepperNext>BUY NOW</button>
+          <!-- <button mat-button matStepperNext>Next</button> -->
+        </div>
+      </div>
+    </div>
+    <div></div>
+  </mat-step>
+</mat-horizontal-stepper>
+<!-- </div> -->
