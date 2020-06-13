@@ -16,17 +16,30 @@ export class CartService {
   }
 
   addToCart(product: CartItem) {
-    this.cart.push(product);
+    let arrIndex: number;
+    let checkItem: CartItem | undefined = this.cart.find((item, index) => {
+      if (item.id == product.id && item.sub_id == product.sub_id) {
+        arrIndex = index;
+        return item;
+      }
+    });
+    if (!checkItem) {
+      this.cart.push(product);
+    } else {
+      checkItem.quantity = product.quantity;
+      this.cart[arrIndex] = checkItem;
+    }
     localStorage.setItem("product", JSON.stringify(this.cart));
     this.cart$.next(this.cart);
   }
 
   removeFromCart(product: CartItem) {
-    this.cart = this.cart.filter((res) => {
-      if (res.product_name !== product.product_name) {
-        return res;
+    let productId = this.cart.findIndex((item) => {
+      if (item.id == product.id && item.sub_id == product.sub_id) {
+        return item;
       }
     });
+    this.cart.splice(productId, 1);
     localStorage.setItem("product", JSON.stringify(this.cart));
     this.cart$.next(this.cart);
   }

@@ -16,22 +16,30 @@
           <p class="price">{{ product.price }} EGP</p>
           <mat-form-field appearance="outline">
             <mat-label>Size</mat-label>
-            <mat-select [(ngModel)]="selectedSize">
-              <mat-option *ngFor="let size of product.size" [value]="size">{{ size }}</mat-option>
+            <mat-select [ngModel]="selectedSize" (ngModelChange)="changeSelectedSize($event)">
+              <mat-option *ngFor="let size of sizeMap | keyvalue" [value]="size.key">{{ size.key }}</mat-option>
             </mat-select>
           </mat-form-field>
           <div class="colorWrapper">
             <p class="colorTitle">Color:</p>
-            <div *ngFor="let scolor of product.color">
-              <label [for]="scolor" class="color-choice">
-                <input [(ngModel)]="selectedColor" [id]="scolor" type="radio" name="color" [value]="scolor" class="color-option" />
-                <div [className]="'color ' + scolor"></div>
+            <div *ngFor="let scolor of colorList">
+              <label [for]="scolor[0]" class="color-choice">
+                <input
+                  [ngModel]="selectedColor"
+                  (ngModelChange)="changeSelectedColor($event)"
+                  [id]="scolor[0]"
+                  type="radio"
+                  name="color"
+                  [value]="scolor[0]"
+                  class="color-option"
+                />
+                <div class="color" [ngStyle]="{ background: scolor[1] }"></div>
               </label>
             </div>
           </div>
           <mat-form-field style="width: 90px !important;" appearance="outline">
             <mat-label>Quantity</mat-label>
-            <input [(ngModel)]="selectedQuantity" matInput class="quantityInput" type="number" value="1" min="1" max="5" />
+            <input [(ngModel)]="selectedQuantity" matInput class="quantityInput" type="number" value="1" min="1" [max]="maxQuantity" />
           </mat-form-field>
           <button mat-raised-button (click)="addToCart()">Add to cart</button>
 

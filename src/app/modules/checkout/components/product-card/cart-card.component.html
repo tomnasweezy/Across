@@ -1,11 +1,11 @@
 <div class="cardWrapper">
   <mat-card class="example-card">
     <div class="imageWrapper">
-      <img mat-card-image src="assets/shirts/t2.jpg" alt="Photo of a Shiba Inu" />
+      <img mat-card-image [src]="(product?.images)[0]" alt="Photo of a Shiba Inu" />
     </div>
     <mat-card-content>
       <div class="details">
-        <h5 class="tshirtName">{{ data.product_name }}</h5>
+        <h5 class="tshirtName">{{ product?.product_name }}</h5>
         <div class="secondary-details">
           <p class="color">
             Color:
@@ -14,7 +14,7 @@
           </p>
           <p class="size">Size: {{ data.size }}</p>
         </div>
-        <h6 class="price">{{ data.price }} LE</h6>
+        <h6 class="price">{{ product?.price }} LE</h6>
       </div>
       <div class="Quantity">
         <mat-form-field style="width: 90px !important;" appearance="outline">

@@ -35,7 +35,7 @@ export class CheckoutComponent implements OnInit {
   }
   updateQuantity(item: CartItem) {
     for (let current of this.realData) {
-      if (current.product_name === item.product_name) {
+      if (current.product_item.id === item.product_item.id && current.sub_id == item.sub_id) {
         current = item;
       }
     }
