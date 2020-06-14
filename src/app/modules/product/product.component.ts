@@ -6,7 +6,7 @@ import { CartService } from "src/app/core/services/cart.service";
 import { ProductService } from "src/app/core/services/product.service";
 import { Location } from "@angular/common";
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from "ngx-gallery-9";
-
+import { v4 } from "uuid";
 @Component({
   selector: "app-product",
   templateUrl: "./product.component.html",
@@ -120,6 +120,7 @@ export class ProductComponent implements OnInit {
 
   addToCart() {
     let cartItem: CartItem = {
+      id: v4(),
       product_item: this.product,
       sub_id: `${this.selectedSize}.${this.selectedColor}`,
       color: this.selectedColor,

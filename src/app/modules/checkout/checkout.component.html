@@ -25,7 +25,7 @@
         <table>
           <tr>
             <th>Subtotal</th>
-            <td>200 LE</td>
+            <td>{{ sum }} LE</td>
           </tr>
           <tr>
             <th>Shipping</th>
@@ -36,7 +36,7 @@
           <tr></tr>
           <tr>
             <th>Total</th>
-            <th>445 LE</th>
+            <th>{{ getTotal() }} LE</th>
           </tr>
         </table>
         <div class="nextButton">
@@ -56,9 +56,9 @@
           <input [(ngModel)]="shippingData.fullname" matInput name="fullname" placeholder="John Doe" required />
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field [className]="shippingDataError.email">
           <mat-label>Email</mat-label>
-          <input [(ngModel)]="shippingData.email" matInput name="email" placeholder="John Doe" required />
+          <input [(ngModel)]="shippingData.email" matInput name="email" placeholder="myemail@gmail.com" required />
         </mat-form-field>
 
         <mat-form-field>
@@ -72,28 +72,28 @@
           <h4 style="font-weight: bold;">Shipping info</h4>
           <mat-form-field>
             <mat-label>Street Address</mat-label>
-            <input [(ngModel)]="shippingData.streetaddress" matInput name="streetaddress" placeholder="John Doe" required />
+            <input [(ngModel)]="shippingData.streetaddress" matInput name="streetaddress" placeholder="" required />
           </mat-form-field>
           <div>
             <mat-form-field>
               <mat-label>Address landmark</mat-label>
-              <input [(ngModel)]="shippingData.landmarkaddress" matInput name="streetaddress" placeholder="John Doe" required />
+              <input [(ngModel)]="shippingData.landmarkaddress" matInput name="streetaddress" placeholder="Beside the famous.." required />
             </mat-form-field>
 
             <mat-form-field>
               <mat-label>Building number</mat-label>
-              <input [(ngModel)]="shippingData.buildingnumber" matInput name="streetaddress" placeholder="John Doe" required />
+              <input [(ngModel)]="shippingData.buildingnumber" matInput name="streetaddress" required />
             </mat-form-field>
           </div>
           <div>
             <mat-form-field>
               <mat-label>Floor number</mat-label>
-              <input [(ngModel)]="shippingData.floornumber" matInput name="streetaddress" placeholder="John Doe" required />
+              <input [(ngModel)]="shippingData.floornumber" matInput name="streetaddress" required />
             </mat-form-field>
 
             <mat-form-field>
               <mat-label>Flat number</mat-label>
-              <input [(ngModel)]="shippingData.flatnumber" matInput name="streetaddress" placeholder="John Doe" required />
+              <input [(ngModel)]="shippingData.flatnumber" matInput name="streetaddress" required />
             </mat-form-field>
           </div>
         </div>
@@ -101,7 +101,7 @@
           <h4 style="font-weight: bold; visibility: hidden;">Personal info</h4>
           <mat-form-field>
             <mat-label>Comments</mat-label>
-            <textarea [(ngModel)]="shippingData.comment" rows="9" matInput name="streetaddress" placeholder="John Doe" required></textarea>
+            <textarea [(ngModel)]="shippingData.comment" rows="9" matInput name="streetaddress" required></textarea>
           </mat-form-field>
         </div>
       </div>
@@ -115,71 +115,62 @@
     <div class="orderWrapper">
       <ng-template matStepLabel>Done</ng-template>
       <div class="left">
-        <mat-accordion class="example-headers-align" multi>
-          <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Shipping Address
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <table class="shipping-address-table">
-              <tr>
-                <th>Full name</th>
-                <td>Ahmed hisham Alsweasy</td>
-              </tr>
-              <tr>
-                <th><mat-icon aria-hidden="false" aria-label="Example home icon">phone</mat-icon></th>
-                <td>01100781855</td>
-              </tr>
-              <tr>
-                <th>Building No:</th>
-                <td>41</td>
-              </tr>
-              <tr>
-                <th>Floor No:</th>
-                <td>3</td>
-              </tr>
-              <tr>
-                <th>Flat No:</th>
-                <td>9</td>
-              </tr>
-              <tr>
-                <th>Address</th>
-                <td>Ahmed housni beside gennah mall</td>
-              </tr>
-              <tr>
-                <th>Landmark</th>
-                <td>beside Ahmed housni beside gennah mall</td>
-              </tr>
-              <tr>
-                <th>Email</th>
-                <td>Ahmed.h.alsweasy@gmail.com</td>
-              </tr>
-              <tr>
-                <th>Comment</th>
-                <td>i have not comment for now</td>
-              </tr>
-            </table>
-            <mat-icon class="editIcon" (click)="edit()">edit</mat-icon>
-          </mat-expansion-panel>
-          <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Payment Method
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-list role="list">
-              <mat-list-item role="listitem" class="cashondeli">Cash On Delivery</mat-list-item>
-            </mat-list>
-          </mat-expansion-panel>
-        </mat-accordion>
+        <mat-card>
+          <mat-icon class="editIcon" (click)="edit()">edit</mat-icon>
+          <h3 class="shipAdd">Shipping Address</h3>
+
+          <table class="shipping-address-table">
+            <tr>
+              <th>Full name</th>
+              <td>{{ shippingData.fullname }}</td>
+            </tr>
+            <tr>
+              <th><mat-icon aria-hidden="false" aria-label="Example home icon">phone</mat-icon></th>
+              <td>{{ shippingData.phonenumber }}</td>
+            </tr>
+            <tr>
+              <th>Building No:</th>
+              <td>{{ shippingData.buildingnumber }}</td>
+            </tr>
+            <tr>
+              <th>Floor No:</th>
+              <td>{{ shippingData.floornumber }}</td>
+            </tr>
+            <tr>
+              <th>Flat No:</th>
+              <td>{{ shippingData.flatnumber }}</td>
+            </tr>
+            <tr>
+              <th>Address</th>
+              <td>{{ shippingData.streetaddress }}</td>
+            </tr>
+            <tr>
+              <th>Landmark</th>
+              <td>{{ shippingData.landmarkaddress }}</td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td>{{ shippingData.email }}</td>
+            </tr>
+            <tr>
+              <th>Comment</th>
+              <td>{{ shippingData.comment }}</td>
+            </tr>
+          </table>
+        </mat-card>
+        <mat-card>
+          <h3>Payment Method</h3>
+          <mat-list role="list">
+            <mat-list-item role="listitem" class="cashondeli">Cash On Delivery</mat-list-item>
+          </mat-list>
+        </mat-card>
       </div>
       <div class="right">
         <h1>Order Summary</h1>
         <table>
           <tr>
             <th>Subtotal</th>
-            <td>200 LE</td>
+            <td>{{ sum }} LE</td>
           </tr>
           <tr>
             <th>Shipping</th>
@@ -190,7 +181,7 @@
           <tr></tr>
           <tr>
             <th>Total</th>
-            <th>445 LE</th>
+            <th>{{ getTotal() }} LE</th>
           </tr>
         </table>
         <div class="buyNowButton">

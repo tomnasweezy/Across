@@ -9,7 +9,8 @@
         <div class="secondary-details">
           <p class="color">
             Color:
-            <span [className]="'color-indicator ' + data.color"></span>
+            <!-- <span [className]="'color-indicator ' + data.color"></span> -->
+            <span [className]="data.color"></span>
             {{ data.color }}
           </p>
           <p class="size">Size: {{ data.size }}</p>
