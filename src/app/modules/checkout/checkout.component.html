@@ -46,7 +46,7 @@
       </div>
     </div>
   </mat-step>
-  <mat-step [editable]="isEditable">
+  <mat-step [stepControl]="shippingData" [editable]="isEditable">
     <form [formGroup]="shippingData" (ngSubmit)="nextStep()" #shippingform>
       <ng-template matStepLabel>Shipping address</ng-template>
       <div class="shippinginfo">
@@ -115,11 +115,11 @@
       <!-- <button mat-flat-button color="primary">Submit</button> -->
       <div class="buttonsWrapper">
         <button mat-raised-button matStepperPrevious>Back</button>
-        <button mat-raised-button (click)="nextStep()">Next</button>
+        <button mat-raised-button (click)="nextSteps()">Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step>
+  <mat-step [editable]="isEditable">
     <div class="orderWrapper">
       <ng-template matStepLabel>Done</ng-template>
       <div class="left">

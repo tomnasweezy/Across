@@ -3,13 +3,14 @@ import { CartItem } from "src/app/shared/models/cart.model";
 import { CartService } from "src/app/core/services/cart.service";
 import { Product } from "src/app/shared/models/product.model";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { MatStepper } from "@angular/material/stepper";
 @Component({
   selector: "app-checkout",
   templateUrl: "./checkout.component.html",
   styleUrls: ["./checkout.component.scss"],
 })
 export class CheckoutComponent implements OnInit {
-  @ViewChild("stepper") stepper;
+  @ViewChild("stepper") stepper: MatStepper;
   @ViewChild("shippingform") shippingForm: ElementRef;
   sum: any = 0;
   currentQuantity = [];
