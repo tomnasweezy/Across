@@ -46,72 +46,80 @@
       </div>
     </div>
   </mat-step>
-  <mat-step [editable]="isEditable">
-    <ng-template matStepLabel>Shipping address</ng-template>
-    <div class="shippinginfo">
-      <div class="personal">
-        <h4 style="font-weight: bold;">Personal info</h4>
-        <mat-form-field>
-          <mat-label>Full Name</mat-label>
-          <input [(ngModel)]="shippingData.fullname" matInput name="fullname" placeholder="John Doe" required />
-        </mat-form-field>
-
-        <mat-form-field [className]="shippingDataError.email">
-          <mat-label>Email</mat-label>
-          <input [(ngModel)]="shippingData.email" matInput name="email" placeholder="myemail@gmail.com" required />
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label>Phone Number</mat-label>
-          <input [(ngModel)]="shippingData.phonenumber" matInput name="phonenumber" placeholder="John Doe" required />
-        </mat-form-field>
-      </div>
-
-      <div class="shippingaddrese">
-        <div class="address">
-          <h4 style="font-weight: bold;">Shipping info</h4>
+  <mat-step [stepControl]="shippingData" [editable]="isEditable">
+    <form [formGroup]="shippingData" (ngSubmit)="nextStep()" #shippingform>
+      <ng-template matStepLabel>Shipping address</ng-template>
+      <div class="shippinginfo">
+        <div class="personal">
+          <h4 style="font-weight: bold;">Personal info</h4>
           <mat-form-field>
-            <mat-label>Street Address</mat-label>
-            <input [(ngModel)]="shippingData.streetaddress" matInput name="streetaddress" placeholder="" required />
+            <mat-label>Full Name</mat-label>
+            <input matInput formControlName="fullname" name="fullname" placeholder="John Doe" required />
+            <mat-error *ngIf="errorHandling('fullname', 'required')"> You must provide a<strong> full name</strong> </mat-error>
           </mat-form-field>
-          <div>
+
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" name="email" type="email" placeholder="myemail@gmail.com" required />
+            <mat-error *ngIf="errorHandling('email', 'required')"> You must provide an<strong> email</strong> </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Phone Number</mat-label>
+            <input matInput formControlName="phonenumber" name="phonenumber" placeholder="John Doe" required />
+            <mat-error *ngIf="errorHandling('phonenumber', 'required')"> You must provide a<strong> phone number</strong> </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="shippingaddrese">
+          <div class="address">
+            <h4 style="font-weight: bold;">Shipping info</h4>
+            <mat-form-field>
+              <mat-label>Street Address</mat-label>
+              <input matInput formControlName="streetaddress" name="streetaddress" placeholder="" required />
+              <mat-error *ngIf="errorHandling('streetaddress', 'required')"> You must provide a<strong> street address</strong> </mat-error>
+            </mat-form-field>
+            <div class="apt-info">
+              <mat-form-field>
+                <mat-label>Building No.</mat-label>
+                <input matInput formControlName="building_no" name="building_no" required />
+                <mat-error *ngIf="errorHandling('building_no', 'required')"> You must provide a<strong> building no</strong> </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Floor No.</mat-label>
+                <input matInput formControlName="floor_no" name="floor_no" required />
+                <mat-error *ngIf="errorHandling('floor_no', 'required')"> You must provide a<strong> floor no</strong> </mat-error>
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Flat No.</mat-label>
+                <input matInput formControlName="flat_no" name="flat_no" required />
+                <mat-error *ngIf="errorHandling('flat_no', 'required')"> You must provide a<strong> flat no</strong> </mat-error>
+              </mat-form-field>
+            </div>
+
             <mat-form-field>
               <mat-label>Address landmark</mat-label>
-              <input [(ngModel)]="shippingData.landmarkaddress" matInput name="streetaddress" placeholder="Beside the famous.." required />
-            </mat-form-field>
-
-            <mat-form-field>
-              <mat-label>Building number</mat-label>
-              <input [(ngModel)]="shippingData.buildingnumber" matInput name="streetaddress" required />
+              <input matInput formControlName="address_land" name="address_land" placeholder="Beside the famous.." />
             </mat-form-field>
           </div>
-          <div>
+          <div class="comment">
+            <h4 style="font-weight: bold; visibility: hidden;">Personal info</h4>
             <mat-form-field>
-              <mat-label>Floor number</mat-label>
-              <input [(ngModel)]="shippingData.floornumber" matInput name="streetaddress" required />
-            </mat-form-field>
-
-            <mat-form-field>
-              <mat-label>Flat number</mat-label>
-              <input [(ngModel)]="shippingData.flatnumber" matInput name="streetaddress" required />
+              <mat-label>Comments</mat-label>
+              <textarea rows="10" matInput formControlName="comment" name="comment" style="resize: none;"></textarea>
             </mat-form-field>
           </div>
-        </div>
-        <div class="comment">
-          <h4 style="font-weight: bold; visibility: hidden;">Personal info</h4>
-          <mat-form-field>
-            <mat-label>Comments</mat-label>
-            <textarea [(ngModel)]="shippingData.comment" rows="9" matInput name="streetaddress" required></textarea>
-          </mat-form-field>
         </div>
       </div>
-    </div>
-    <div class="buttonsWrapper">
-      <button mat-raised-button matStepperPrevious>Back</button>
-      <button mat-raised-button (click)="nextStep()">Next</button>
-    </div>
+      <!-- <button mat-flat-button color="primary">Submit</button> -->
+      <div class="buttonsWrapper">
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button (click)="nextSteps()">Next</button>
+      </div>
+    </form>
   </mat-step>
-  <mat-step>
+  <mat-step [editable]="isEditable">
     <div class="orderWrapper">
       <ng-template matStepLabel>Done</ng-template>
       <div class="left">
@@ -122,39 +130,39 @@
           <table class="shipping-address-table">
             <tr>
               <th>Full name</th>
-              <td>{{ shippingData.fullname }}</td>
+              <td>{{ shippingData.value.fullname }}</td>
             </tr>
             <tr>
-              <th><mat-icon aria-hidden="false" aria-label="Example home icon">phone</mat-icon></th>
-              <td>{{ shippingData.phonenumber }}</td>
+              <th>Phone No:</th>
+              <td>{{ shippingData.value.phonenumber }}</td>
             </tr>
             <tr>
               <th>Building No:</th>
-              <td>{{ shippingData.buildingnumber }}</td>
+              <td>{{ shippingData.value.building_no }}</td>
             </tr>
             <tr>
               <th>Floor No:</th>
-              <td>{{ shippingData.floornumber }}</td>
+              <td>{{ shippingData.value.floor_no }}</td>
             </tr>
             <tr>
               <th>Flat No:</th>
-              <td>{{ shippingData.flatnumber }}</td>
+              <td>{{ shippingData.value.flat_no }}</td>
             </tr>
             <tr>
               <th>Address</th>
-              <td>{{ shippingData.streetaddress }}</td>
+              <td>{{ shippingData.value.streetaddress }}</td>
             </tr>
             <tr>
               <th>Landmark</th>
-              <td>{{ shippingData.landmarkaddress }}</td>
+              <td>{{ shippingData.value.address_land }}</td>
             </tr>
             <tr>
               <th>Email</th>
-              <td>{{ shippingData.email }}</td>
+              <td>{{ shippingData.value.email }}</td>
             </tr>
             <tr>
               <th>Comment</th>
-              <td>{{ shippingData.comment }}</td>
+              <td>{{ shippingData.value.comment }}</td>
             </tr>
           </table>
         </mat-card>
