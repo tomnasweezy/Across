@@ -1,6 +1,7 @@
-// .stepperWrapper {
-//   width: 100%;
-//   margin: auto;
+.mat-form-field {
+  margin-bottom: 15px;
+}
+
 .mat-stepper-horizontal {
   margin-top: 8px;
   height: 100%;
@@ -127,7 +128,7 @@
   }
   .personal {
     flex: 1;
-    margin-right: 25px;
+    // margin-right: 25px;
   }
 
   .shippingaddrese {
@@ -139,6 +140,10 @@
       > div {
         display: flex;
         flex-direction: row;
+        .mat-form-field {
+          width: 130px;
+        }
+
         .mat-form-field:first-child {
           margin-right: 10px;
         }

@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild, Input, Output } from "@angular/core";
+import { Component, OnInit, ViewChild, Input, Output, ElementRef } from "@angular/core";
 import { CartItem } from "src/app/shared/models/cart.model";
 import { CartService } from "src/app/core/services/cart.service";
 import { Product } from "src/app/shared/models/product.model";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 @Component({
   selector: "app-checkout",
   templateUrl: "./checkout.component.html",
@@ -9,6 +10,7 @@ import { Product } from "src/app/shared/models/product.model";
 })
 export class CheckoutComponent implements OnInit {
   @ViewChild("stepper") stepper;
+  @ViewChild("shippingform") shippingForm: ElementRef;
   sum: any = 0;
   currentQuantity = [];
   step = 0;
@@ -16,32 +18,10 @@ export class CheckoutComponent implements OnInit {
   isLinear = false;
   isEditable = true;
   panelOpenState = false;
-
-  shippingData = {
-    fullname: null,
-    email: null,
-    phonenumber: null,
-    streetaddress: null,
-    landmarkaddress: null,
-    buildingnumber: null,
-    floornumber: null,
-    flatnumber: null,
-    comment: null,
-  };
-  shippingDataError = {
-    fullname: null,
-    email: null,
-    phonenumber: null,
-    streetaddress: null,
-    landmarkaddress: null,
-    buildingnumber: null,
-    floornumber: null,
-    flatnumber: null,
-    comment: null,
-  };
+  shippingData: FormGroup;
   realData: CartItem[] = [];
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private fb: FormBuilder) {
     this.cartService.getCartItemsObs().subscribe((res) => {
       this.realData = res;
       this.getSum();
@@ -49,33 +29,33 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // console.log("okok", this.data);
-    // console.log(this.product);
+    this.shippingData = this.fb.group({
+      fullname: ["", Validators.required],
+      email: ["", Validators.required],
+      phonenumber: ["", Validators.required],
+      streetaddress: ["", Validators.required],
+      building_no: ["", Validators.required],
+      floor_no: ["", Validators.required],
+      flat_no: ["", Validators.required],
+      address_land: [""],
+      comment: [""],
+    });
   }
   setStep(index: number) {
     this.step = index;
   }
 
   nextSteps() {
-    this.step++;
+    if (this.shippingData.status == "VALID") {
+      this.step++;
+    }
   }
 
   prevStep() {
     this.step--;
   }
   nextStep() {
-    let clear = true;
-    for (let [i, v] of Object.entries(this.shippingData)) {
-      if (i !== "comment") {
-        if (v == null || v == undefined || v.length == 0) {
-          // console.log(v);
-          this.shippingDataError[i] = "mat-form-field-invalid ng-invalid mat-form-field-hide-placeholder";
-          // console.log(this.shippingDataError);
-          clear = false;
-        }
-      }
-    }
-    if (clear) {
+    if (this.shippingData.status == "VALID") {
       this.stepper.next();
     }
   }
@@ -104,5 +84,9 @@ export class CheckoutComponent implements OnInit {
   }
   getTotal() {
     return this.sum + 45;
+  }
+
+  public errorHandling(control: string, error: string) {
+    return this.shippingData.controls[control].hasError(error);
   }
 }
