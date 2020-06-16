@@ -62,11 +62,12 @@
             <mat-label>Email</mat-label>
             <input matInput formControlName="email" name="email" type="email" placeholder="myemail@gmail.com" required />
             <mat-error *ngIf="errorHandling('email', 'required')"> You must provide an<strong> email</strong> </mat-error>
+            <mat-error *ngIf="errorHandling('email', 'email')"> Please provide a valid<strong> email</strong> </mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <mat-label>Phone Number</mat-label>
-            <input matInput formControlName="phonenumber" name="phonenumber" placeholder="John Doe" required />
+            <input matInput formControlName="phonenumber" name="phonenumber" type="tel" placeholder="John Doe" required />
             <mat-error *ngIf="errorHandling('phonenumber', 'required')"> You must provide a<strong> phone number</strong> </mat-error>
           </mat-form-field>
         </div>
@@ -76,24 +77,24 @@
             <h4 style="font-weight: bold;">Shipping info</h4>
             <mat-form-field>
               <mat-label>Street Address</mat-label>
-              <input matInput formControlName="streetaddress" name="streetaddress" placeholder="" required />
+              <input matInput formControlName="streetaddress" name="streetaddress" type="text" placeholder="" required />
               <mat-error *ngIf="errorHandling('streetaddress', 'required')"> You must provide a<strong> street address</strong> </mat-error>
             </mat-form-field>
             <div class="apt-info">
               <mat-form-field>
                 <mat-label>Building No.</mat-label>
-                <input matInput formControlName="building_no" name="building_no" required />
+                <input matInput formControlName="building_no" name="building_no" type="number" required />
                 <mat-error *ngIf="errorHandling('building_no', 'required')"> You must provide a<strong> building no</strong> </mat-error>
               </mat-form-field>
               <mat-form-field>
                 <mat-label>Floor No.</mat-label>
-                <input matInput formControlName="floor_no" name="floor_no" required />
+                <input matInput formControlName="floor_no" name="floor_no" type="number" required />
                 <mat-error *ngIf="errorHandling('floor_no', 'required')"> You must provide a<strong> floor no</strong> </mat-error>
               </mat-form-field>
 
               <mat-form-field>
                 <mat-label>Flat No.</mat-label>
-                <input matInput formControlName="flat_no" name="flat_no" required />
+                <input matInput formControlName="flat_no" name="flat_no" type="number" required />
                 <mat-error *ngIf="errorHandling('flat_no', 'required')"> You must provide a<strong> flat no</strong> </mat-error>
               </mat-form-field>
             </div>
