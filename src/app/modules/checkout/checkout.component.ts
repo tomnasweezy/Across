@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, Input, Output, ElementRef } from "@angula
 import { CartItem } from "src/app/shared/models/cart.model";
 import { CartService } from "src/app/core/services/cart.service";
 import { Product } from "src/app/shared/models/product.model";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 import { MatStepper } from "@angular/material/stepper";
 @Component({
   selector: "app-checkout",
@@ -31,14 +31,14 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.shippingData = this.fb.group({
-      fullname: ["", Validators.required],
-      email: ["", Validators.required],
-      phonenumber: ["", Validators.required],
-      streetaddress: ["", Validators.required],
-      building_no: ["", Validators.required],
-      floor_no: ["", Validators.required],
-      flat_no: ["", Validators.required],
-      address_land: [""],
+      fullname: new FormControl("", [Validators.required]),
+      email: new FormControl("", [Validators.required, Validators.email]),
+      phonenumber: new FormControl("", [Validators.required]),
+      streetaddress: new FormControl("", [Validators.required]),
+      building_no: new FormControl("", [Validators.required]),
+      floor_no: new FormControl("", [Validators.required]),
+      flat_no: new FormControl("", [Validators.required]),
+      address_land: new FormControl(""),
       comment: [""],
     });
   }
