@@ -1,5 +1,5 @@
 <!-- <div class="stepperWrapper"> -->
-<mat-horizontal-stepper linear="true" #stepper>
+<mat-vertical-stepper linear="true" #stepper>
   <mat-step [editable]="isEditable">
     <div class="noItems" *ngIf="realData.length == 0">
       <h3>Cart is empty</h3>
@@ -203,5 +203,5 @@
     </div>
     <div></div>
   </mat-step>
-</mat-horizontal-stepper>
+</mat-vertical-stepper>
 <!-- </div> -->
