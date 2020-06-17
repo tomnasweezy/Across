@@ -98,5 +98,69 @@ export class ProductData {
         },
       ],
     },
+    {
+      id: "4",
+      images: ["assets/shirts/t3.jpg", "assets/shirts/t3-back.jpg"],
+      product_name: "Cat",
+      price: 100,
+      sqc: [
+        {
+          sub_id: "S.B",
+          quantity: 5,
+        },
+        {
+          sub_id: "S.W",
+          quantity: 3,
+        },
+        {
+          sub_id: "M.R",
+          quantity: 1,
+        },
+        {
+          sub_id: "M.Y",
+          quantity: 1,
+        },
+        {
+          sub_id: "L.B",
+          quantity: 1,
+        },
+        {
+          sub_id: "L.W",
+          quantity: 1,
+        },
+      ],
+    },
+    {
+      id: "5",
+      images: ["assets/shirts/t3.jpg", "assets/shirts/t3-back.jpg"],
+      product_name: "Cat",
+      price: 100,
+      sqc: [
+        {
+          sub_id: "S.B",
+          quantity: 5,
+        },
+        {
+          sub_id: "S.W",
+          quantity: 3,
+        },
+        {
+          sub_id: "M.R",
+          quantity: 1,
+        },
+        {
+          sub_id: "M.Y",
+          quantity: 1,
+        },
+        {
+          sub_id: "L.B",
+          quantity: 1,
+        },
+        {
+          sub_id: "L.W",
+          quantity: 1,
+        },
+      ],
+    },
   ];
 }

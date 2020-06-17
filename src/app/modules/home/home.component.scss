@@ -1,12 +1,19 @@
 .content-wrapper {
   .home-carousel-wrapper {
-    height: 600px;
     width: 100%;
+
+    @media (max-width: 597px) {
+      height: 250px;
+    }
   }
 
   .section2 {
     padding: 50px 30px;
     margin-bottom: 5%;
+
+    @media (max-width: 597px) {
+      padding: 50px 0px;
+    }
 
     h2 {
       font-weight: bold;
@@ -18,36 +25,19 @@
 
     .items-wrapper {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-template-rows: auto;
-      // padding: 20px;
 
-      // .shirt-container {
-      //   height: 400px;
-      //   width: 85%;
-      //   background: grey;
-      //   margin: 20px auto;
-      //   position: relative;
-      //   display: flex;
-      //   flex-direction: column;
-      //   align-items: center;
+      @media (min-width: 597px) {
+        grid-template-columns: 1fr 1fr;
+      }
 
-      //   img {
-      //     width: 100%;
-      //     height: 100%;
-      //     object-fit: cover;
-      //   }
+      @media (min-width: 790px) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
 
-      //   h3 {
-      //     position: absolute;
-      //     margin: 0;
-      //     bottom: -15px;
-      //     background: #e9c70a;
-      //     width: 70%;
-      //     text-align: center;
-      //     font-weight: bold;
-      //   }
-      // }
+      @media (min-width: 1130px) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
     }
   }
 }
