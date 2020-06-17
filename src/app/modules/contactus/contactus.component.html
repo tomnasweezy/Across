@@ -13,21 +13,18 @@
       <input [(ngModel)]="Contactus.email" matInput name="fullname" placeholder="Email" required />
     </mat-form-field>
   </div>
-  <div class="comment">
-    <mat-form-field>
-      <mat-label>Message</mat-label>
-      <textarea
-        [(ngModel)]="Contactus.message"
-        rows="9"
-        matInput
-        name="streetaddress"
-        placeholder="Type your message here...."
-        required
-      ></textarea>
-    </mat-form-field>
-  </div>
-  <div class="submitbutton">
-    <button mat-raised-button matStepperPrevious (click)="messagesend()">Submit</button>
-    <p>We give a <img src="\assets\shit.png" /></p>
-  </div>
+  <mat-form-field>
+    <mat-label>Message</mat-label>
+    <textarea
+      [(ngModel)]="Contactus.message"
+      rows="9"
+      matInput
+      name="streetaddress"
+      placeholder="Type your message here...."
+      required
+    ></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button matStepperPrevious (click)="messagesend()">Submit</button>
+  <p>We give a <img src="\assets\shit.png" /></p>
 </div>

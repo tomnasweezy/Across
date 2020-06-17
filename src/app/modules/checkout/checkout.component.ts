@@ -1,9 +1,11 @@
-import { Component, OnInit, ViewChild, Input, Output, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild, Input, Output, ElementRef, OnChanges, HostListener } from "@angular/core";
 import { CartItem } from "src/app/shared/models/cart.model";
 import { CartService } from "src/app/core/services/cart.service";
 import { Product } from "src/app/shared/models/product.model";
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 import { MatStepper } from "@angular/material/stepper";
+import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
+
 @Component({
   selector: "app-checkout",
   templateUrl: "./checkout.component.html",
@@ -21,12 +23,16 @@ export class CheckoutComponent implements OnInit {
   panelOpenState = false;
   shippingData: FormGroup;
   realData: CartItem[] = [];
+  isSmallScreen: any;
+  innerWidth: number;
 
-  constructor(private cartService: CartService, private fb: FormBuilder) {
+  constructor(private cartService: CartService, private fb: FormBuilder, private breakpointObserver: BreakpointObserver) {
     this.cartService.getCartItemsObs().subscribe((res) => {
       this.realData = res;
       this.getSum();
     });
+    this.innerWidth = window.innerWidth;
+    // this.isSmallScreen = breakpointObserver.isMatched("(max-width: 1200px)");
   }
 
   ngOnInit(): void {
@@ -42,6 +48,13 @@ export class CheckoutComponent implements OnInit {
       comment: [""],
     });
   }
+
+  @HostListener("window:resize", ["$event"])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
+    console.log("oko", this.innerWidth);
+  }
+
   setStep(index: number) {
     this.step = index;
   }
