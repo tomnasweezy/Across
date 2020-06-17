@@ -89,6 +89,13 @@ export class ProductComponent implements OnInit {
         previewZoom: true,
         previewZoomStep: 1,
       },
+      {
+        breakpoint: 828,
+        width: "100%",
+        height: "500px",
+        thumbnailsSwipe: true,
+        imageSwipe: true,
+      },
     ];
   }
 
