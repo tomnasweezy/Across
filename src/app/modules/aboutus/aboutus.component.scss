@@ -1,37 +1,91 @@
 .aboutWrapper {
-  width: 80%;
-  margin: 0 auto;
+  width: 100%;
   height: calc(100vh - 200px);
+  flex-direction: row;
+  display: flex;
+  align-items: center;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  div {
+  @media (max-width: 397px) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  @media (max-width: 790px) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  @media (max-width: 1130px) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .first {
+    flex: 1;
+    width: 100%;
+    background: #e9c70a;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    img {
-      width: 60%;
-      height: auto;
+    h1 {
+      font-size: 50px;
+      text-align: center;
+      color: black;
     }
   }
   .second {
-    background-color: #333;
-  }
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    p {
+      width: 76%;
+      /* flex: 1; */
+      font-size: 25px;
+      text-align: center;
+      color: white;
+      @media (min-width: 100px) {
+        width: 100%;
+        margin: 10px;
+        font-size: 18px;
+        text-align: center;
+        color: white;
+      }
+      @media (min-width: 397px) {
+        width: 100%;
+        margin: 10px;
+        font-size: 25px;
+        text-align: center;
+        color: white;
+      }
 
-  .third {
-    background-color: #e9c70a;
-  }
-  img {
-    // width: 158px;
-    // padding: 6px;
-    margin: auto;
-    // background: black;
-    // height: 33px;
-  }
-  p {
-    // border: 1px solid red;
-    width: 100%;
-    text-align: center;
-    font-size: 24px;
+      @media (min-width: 790px) {
+        width: 100%;
+        margin: 10px;
+        font-size: 30px;
+        text-align: center;
+        color: white;
+      }
+
+      @media (min-width: 1130px) {
+        width: 100%;
+        /* flex: 1; */
+        // font-size: 10px;
+        text-align: center;
+        color: white;
+        // margin: 10px;
+      }
+
+      // @media (min-width: 60em) {
+      //   font-size: 100%;
+      //   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+      // }
+    }
   }
 }
