@@ -76,10 +76,10 @@ export class ProductData {
           sub_id: "S.B",
           quantity: 5,
         },
-        // {
-        //   sub_id: "S.W",
-        //   quantity: 5,
-        // },
+        {
+          sub_id: "S.W",
+          quantity: 5,
+        },
         {
           sub_id: "M.B",
           quantity: 5,

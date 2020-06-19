@@ -135,6 +135,8 @@ export class ProductComponent implements OnInit {
       size: this.selectedSize,
     };
 
+    console.log(cartItem);
+
     this.cartService.addToCart(cartItem);
   }
 }
