@@ -115,9 +115,9 @@ export class ProductComponent implements OnInit {
   translateColorToHex(color: string) {
     switch (color) {
       case "B":
-        return "#fff";
-      case "W":
         return "#000";
+      case "W":
+        return "#fff";
       case "R":
         return "red";
       case "Y":

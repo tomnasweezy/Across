@@ -2,7 +2,8 @@
   margin-bottom: 15px;
 }
 
-.mat-stepper-horizontal {
+.mat-stepper-horizontal,
+.mat-stepper-vertical {
   margin-top: 8px;
   height: 100%;
   margin: 50px;
@@ -31,6 +32,10 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+
+    @media (max-width: 1200px) {
+      flex-direction: column;
+    }
     .left {
       flex: 1;
       mat-card {
@@ -48,6 +53,12 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-evenly;
+
+      // @media (min-width: 1200px) {
+      //   justify-content: center;
+      //   text-align: center;
+      // }
+
       h1 {
         margin: 29px;
       }
@@ -56,6 +67,9 @@
         height: 113px;
         width: 70%;
         text-align: center;
+        // @media (max-width: 638px) {
+        //   width: 100%;
+        // }
       }
       .nextButton {
         width: 100%;

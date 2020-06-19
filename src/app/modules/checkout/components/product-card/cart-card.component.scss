@@ -9,9 +9,17 @@
     flex-direction: row;
     align-items: center;
 
+    @media (max-width: 638px) {
+      width: 50%;
+      flex-direction: column;
+    }
+
     .imageWrapper {
       width: 250px;
       height: 100%;
+      @media (max-width: 638px) {
+        width: 100%;
+      }
       .mat-card-image {
         padding: 0;
         margin: 0;
@@ -27,6 +35,10 @@
     height: 100%;
     flex-direction: row;
     justify-content: space-evenly;
+
+    @media (max-width: 638px) {
+      padding: 10px;
+    }
     .details {
       flex: 1;
       margin-left: 20px;
