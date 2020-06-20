@@ -62,7 +62,8 @@
       h1 {
         margin: 29px;
         @media (max-width: 1200px) {
-          margin: auto;
+          width: 100%;
+          text-align: center;
           margin-top: 20px;
         }
       }
@@ -121,8 +122,10 @@
   .buyNowButton {
     width: 100%;
     display: flex;
-
     justify-content: center;
+    @media (max-width: 1200px) {
+      width: 100%;
+    }
 
     button {
       width: 42%;
@@ -131,6 +134,9 @@
       outline: none;
       background-color: #333;
       border-radius: 0px;
+      @media (max-width: 1200px) {
+        width: 100%;
+      }
     }
   }
 }

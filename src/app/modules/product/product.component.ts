@@ -7,6 +7,7 @@ import { ProductService } from "src/app/core/services/product.service";
 import { Location } from "@angular/common";
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from "ngx-gallery-9";
 import { v4 } from "uuid";
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from "@angular/material/snack-bar";
 @Component({
   selector: "app-product",
   templateUrl: "./product.component.html",
@@ -21,13 +22,15 @@ export class ProductComponent implements OnInit {
   maxQuantity: number = 0;
   selectedColor: string = "B";
   selectedColorHex: string = "#000";
-
+  numberofclick: number = 0;
   selectedQuantity: number = 1;
   selectedSize: string;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
-
+  horizontalPosition: MatSnackBarHorizontalPosition = "center";
+  verticalPosition: MatSnackBarVerticalPosition = "top";
   constructor(
+    private _snackBar: MatSnackBar,
     private aRouter: ActivatedRoute,
     private cartService: CartService,
     private productService: ProductService,
@@ -126,6 +129,16 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart() {
+    if (this.numberofclick == 0) {
+      this._snackBar.open("Please check your cart for the added item", "", {
+        duration: 2000,
+        panelClass: ["snackbarstyle"],
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+      });
+      console.log("the first click");
+      this.numberofclick++;
+    }
     let cartItem: CartItem = {
       id: v4(),
       product_item: this.product,

@@ -9,6 +9,8 @@ import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { NgxGalleryModule } from "ngx-gallery-9";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+
 @NgModule({
   declarations: [ProductComponent],
   imports: [
@@ -21,6 +23,7 @@ import { NgxGalleryModule } from "ngx-gallery-9";
     MatButtonModule,
     MatExpansionModule,
     NgxGalleryModule,
+    MatSnackBarModule,
   ],
 })
 export class ProductModule {}
