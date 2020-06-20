@@ -27,8 +27,6 @@ export class ProductComponent implements OnInit {
   selectedSize: string;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
-  horizontalPosition: MatSnackBarHorizontalPosition = "center";
-  verticalPosition: MatSnackBarVerticalPosition = "top";
   constructor(
     private _snackBar: MatSnackBar,
     private aRouter: ActivatedRoute,
@@ -129,16 +127,6 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart() {
-    if (this.numberofclick == 0) {
-      this._snackBar.open("Please check your cart for the added item", "", {
-        duration: 2000,
-        panelClass: ["snackbarstyle"],
-        horizontalPosition: this.horizontalPosition,
-        verticalPosition: this.verticalPosition,
-      });
-      console.log("the first click");
-      this.numberofclick++;
-    }
     let cartItem: CartItem = {
       id: v4(),
       product_item: this.product,
@@ -151,5 +139,16 @@ export class ProductComponent implements OnInit {
     console.log(cartItem);
 
     this.cartService.addToCart(cartItem);
+
+    if (this.numberofclick == 0) {
+      this._snackBar.open("Please check your cart for the added item", "", {
+        duration: 2000,
+        panelClass: ["snackbarstyle"],
+        horizontalPosition: "right",
+        verticalPosition: "bottom",
+      });
+      console.log("the first click");
+      this.numberofclick++;
+    }
   }
 }
