@@ -5,6 +5,7 @@ import { CoreModule } from "./core/core.module";
 import { SharedModule } from "./shared/shared.module";
 
 import { AppRoutingModule } from "./app-routing.module";
+import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MDBBootstrapModule } from "angular-bootstrap-md";
 
@@ -20,6 +21,7 @@ import { MatIconModule } from "@angular/material/icon";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     CoreModule,
     SharedModule,
     BrowserAnimationsModule,

@@ -3,11 +3,11 @@ import { CartItem } from "src/app/shared/models/cart.model";
 import { ActivatedRoute } from "@angular/router";
 import { Product } from "src/app/shared/models/product.model";
 import { CartService } from "src/app/core/services/cart.service";
-import { ProductService } from "src/app/core/services/product.service";
 import { Location } from "@angular/common";
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from "ngx-gallery-9";
 import { v4 } from "uuid";
-import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from "@angular/material/snack-bar";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { ProductDAOService } from "src/app/core/http/product-dao.service";
 @Component({
   selector: "app-product",
   templateUrl: "./product.component.html",
@@ -31,51 +31,54 @@ export class ProductComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private aRouter: ActivatedRoute,
     private cartService: CartService,
-    private productService: ProductService,
+    private productDAO: ProductDAOService,
     private location: Location
   ) {
     this.aRouter.params.subscribe((parms) => {
       let pi = parms["productId"];
-      let resProduct = this.productService.getOneProduct(pi);
-      if (resProduct.length > 0) {
-        this.product = resProduct[0];
-        let g = [];
-        for (let image of this.product.images) {
-          let p = {
-            big: image,
-            medium: image,
-            small: image,
-          };
-          g.push(p);
-        }
-        this.galleryImages = g;
-
-        let sqc = this.product.sqc;
-        for (let [index, qualities] of sqc.entries()) {
-          let [size, color] = qualities.sub_id.split(".");
-
-          if (this.sizeMap.get(size)) {
-            let e_color = this.sizeMap.get(size);
-            e_color.push([color, this.translateColorToHex(color)]);
-            this.sizeMap.set(size, e_color);
-          } else {
-            let colorHexMap = [];
-            colorHexMap.push([color, this.translateColorToHex(color)]);
-            this.sizeMap.set(size, colorHexMap);
+      this.productDAO.getOneParam(pi).subscribe(
+        (res) => {
+          this.product = res;
+          let g = [];
+          for (let image of this.product.images) {
+            let p = {
+              big: image,
+              medium: image,
+              small: image,
+            };
+            g.push(p);
           }
-          this.productSQCMap.set(qualities.sub_id, qualities.quantity);
+          this.galleryImages = g;
 
-          if (index == 0) {
-            this.selectedColor = color;
-            this.selectedSize = size;
-            this.selectedQuantity = 1;
-            this.maxQuantity = qualities.quantity;
+          let sqc = this.product.sqc;
+          for (let [index, qualities] of sqc.entries()) {
+            let [size, color] = qualities.sub_id.split(".");
+
+            if (this.sizeMap.get(size)) {
+              let e_color = this.sizeMap.get(size);
+              e_color.push([color, this.translateColorToHex(color)]);
+              this.sizeMap.set(size, e_color);
+            } else {
+              let colorHexMap = [];
+              colorHexMap.push([color, this.translateColorToHex(color)]);
+              this.sizeMap.set(size, colorHexMap);
+            }
+            this.productSQCMap.set(qualities.sub_id, qualities.quantity);
+
+            if (index == 0) {
+              this.selectedColor = color;
+              this.selectedSize = size;
+              this.selectedQuantity = 1;
+              this.maxQuantity = qualities.quantity;
+            }
           }
+          this.colorList = this.sizeMap.get(this.selectedSize);
+        },
+        (error) => {
+          console.log(error);
+          this.location.back();
         }
-        this.colorList = this.sizeMap.get(this.selectedSize);
-      } else {
-        this.location.back();
-      }
+      );
     });
   }
 

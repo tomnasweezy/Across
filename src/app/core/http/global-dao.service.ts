@@ -10,11 +10,11 @@ export class GlobalDAOService<T> {
 
   constructor(protected _api: ApiService) {}
 
-  getAll(): Observable<Object> {
-    return this._api.getRequest<T>(`${this.pageName}/getall/`);
+  getAll(): Observable<T[]> {
+    return this._api.getRequest<T[]>(`${this.pageName}/getall/`);
   }
 
-  getOneParam(id: string): Observable<Object> {
+  getOneParam(id: string): Observable<T> {
     return this._api.getRequest<T>(`${this.pageName}/getone/${id}`);
   }
 }
