@@ -6,6 +6,8 @@ import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms"
 import { MatStepper } from "@angular/material/stepper";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { TooltipPosition } from "@angular/material/tooltip";
+import { CheckoutDAOService } from "src/app/core/http/checkout-dao.service";
+import { ReceiptModel } from "src/app/shared/models/Receipt.model";
 
 @Component({
   selector: "app-checkout",
@@ -28,7 +30,7 @@ export class CheckoutComponent implements OnInit {
   isSmallScreen: any;
   innerWidth: number;
 
-  constructor(private cartService: CartService, private fb: FormBuilder, private breakpointObserver: BreakpointObserver) {
+  constructor(private cartService: CartService, private fb: FormBuilder, private checkoutDAO: CheckoutDAOService) {
     this.cartService.getCartItemsObs().subscribe((res) => {
       this.realData = res;
       this.getSum();
@@ -100,6 +102,18 @@ export class CheckoutComponent implements OnInit {
   }
   getTotal() {
     return this.sum + 20;
+  }
+
+  buyNow() {
+    let receipt: ReceiptModel = {
+      cart: this.realData,
+      userInfo: this.shippingData.value,
+      paymentType: "COD",
+    };
+    console.log("buy now button");
+    this.checkoutDAO.create(receipt).subscribe((res) => {
+      console.log("receipt", res);
+    });
   }
 
   public errorHandling(control: string, error: string) {

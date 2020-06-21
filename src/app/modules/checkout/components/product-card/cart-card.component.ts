@@ -22,6 +22,5 @@ export class ProductCardComponent implements OnInit {
   }
   quantityamount() {
     this.updateQuantity.emit(this.data);
-    // console.log(this.data);
   }
 }

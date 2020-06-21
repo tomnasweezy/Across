@@ -17,4 +17,8 @@ export class GlobalDAOService<T> {
   getOneParam(id: string): Observable<T> {
     return this._api.getRequest<T>(`${this.pageName}/getone/${id}`);
   }
+
+  create(data: T): Observable<T> {
+    return this._api.postRequest<T>(`${this.pageName}/create`, JSON.stringify(data));
+  }
 }
