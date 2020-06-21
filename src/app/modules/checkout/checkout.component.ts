@@ -5,6 +5,7 @@ import { Product } from "src/app/shared/models/product.model";
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
 import { MatStepper } from "@angular/material/stepper";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
+import { TooltipPosition } from "@angular/material/tooltip";
 
 @Component({
   selector: "app-checkout",
@@ -17,6 +18,7 @@ export class CheckoutComponent implements OnInit {
   sum: any = 0;
   currentQuantity = [];
   step = 0;
+  positionOptions: TooltipPosition[] = ["below"];
   typesOfpayment: string[] = ["cash on delivery", "Credit Card"];
   isLinear = false;
   isEditable = true;
@@ -97,7 +99,7 @@ export class CheckoutComponent implements OnInit {
     console.log(this.sum);
   }
   getTotal() {
-    return this.sum + 45;
+    return this.sum + 20;
   }
 
   public errorHandling(control: string, error: string) {

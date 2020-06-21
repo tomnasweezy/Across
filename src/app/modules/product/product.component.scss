@@ -60,7 +60,7 @@ p {
           .color {
             margin-left: 10px;
             margin-top: 5px;
-            border: 3px solid black;
+            // border: 3px solid black;
             height: 30px;
             width: 30px;
             background-color: black;
@@ -74,7 +74,8 @@ p {
 
           .color-option:checked {
             + div {
-              border: 3px solid #e9c70a;
+              box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+              // border: 3px solid #e9c70a;
             }
           }
         }
@@ -86,6 +87,7 @@ p {
         color: black;
         background-color: #e9c70a;
       }
+
       .example-headers-align {
         margin-top: 40px;
         width: 100%;

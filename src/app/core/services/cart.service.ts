@@ -18,7 +18,7 @@ export class CartService {
   addToCart(product: CartItem) {
     let arrIndex: number;
     let checkItem: CartItem | undefined = this.cart.find((item, index) => {
-      if (item.id == product.id && item.sub_id == product.sub_id) {
+      if (item.product_item.id == product.product_item.id && item.sub_id == product.sub_id) {
         arrIndex = index;
         return item;
       }

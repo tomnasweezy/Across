@@ -1,9 +1,18 @@
 <div class="cardWrapper">
+  <button
+    (click)="removeItem()"
+    class="remove-when-mobile"
+    mat-mini-fab
+    color="warn"
+    aria-label="Example icon button with a filter list icon"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
   <mat-card class="example-card">
-    <div class="imageWrapper">
-      <img mat-card-image [src]="(product?.images)[0]" alt="Photo of a Shiba Inu" />
-    </div>
     <mat-card-content>
+      <div class="imageWrapper">
+        <img mat-card-image [src]="(product?.images)[0]" alt="Photo of a Shiba Inu" />
+      </div>
       <div class="details">
         <h5 class="tshirtName">{{ product?.product_name }}</h5>
         <div class="secondary-details">
@@ -31,7 +40,7 @@
             max="5"
           />
         </mat-form-field>
-        <button mat-raised-button color="warn" (click)="removeItem()">Remove</button>
+        <button class="remove-when-desktop" mat-raised-button color="warn" (click)="removeItem()">Remove</button>
       </div>
     </mat-card-content>
   </mat-card>
