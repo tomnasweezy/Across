@@ -11,7 +11,7 @@
   <mat-card class="example-card">
     <mat-card-content>
       <div class="imageWrapper">
-        <img mat-card-image [src]="(product?.images)[0]" alt="Photo of a Shiba Inu" />
+        <img mat-card-image [src]="imgUrlPrefix + (product?.images)[0]" alt="Photo of a Shiba Inu" />
       </div>
       <div class="details">
         <h5 class="tshirtName">{{ product?.product_name }}</h5>
