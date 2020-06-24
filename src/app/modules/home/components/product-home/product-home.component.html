@@ -1,6 +1,6 @@
 <div class="price_image_Wrapper">
   <div class="shirt-container">
-    <img (click)="goToProduct($event)" [src]="data.images[0]" alt="" />
+    <img (click)="goToProduct($event)" [src]="imgUrlPrefix + data.images[0]" alt="" />
     <h2>{{ data.product_name }}</h2>
     <div class="divider"></div>
     <h3>{{ data.price }}LE</h3>

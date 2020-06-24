@@ -9,6 +9,7 @@ import { v4 } from "uuid";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { ProductDAOService } from "src/app/core/http/product-dao.service";
 import { LoadingService } from "src/app/core/services/loading.service";
+import { environment } from "src/environments/environment";
 @Component({
   selector: "app-product",
   templateUrl: "./product.component.html",
@@ -28,6 +29,7 @@ export class ProductComponent implements OnInit {
   selectedSize: string;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
+  imgUrlPrefix: string = `${environment.mediaUrl}:${environment.port}`;
   constructor(
     private _snackBar: MatSnackBar,
     private aRouter: ActivatedRoute,
@@ -45,9 +47,9 @@ export class ProductComponent implements OnInit {
           let g = [];
           for (let image of this.product.images) {
             let p = {
-              big: image,
-              medium: image,
-              small: image,
+              big: `${this.imgUrlPrefix}/${image}`,
+              medium: `${this.imgUrlPrefix}/${image}`,
+              small: `${this.imgUrlPrefix}/${image}`,
             };
             g.push(p);
           }
