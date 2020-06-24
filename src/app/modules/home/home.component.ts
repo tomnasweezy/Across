@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Product } from "src/app/shared/models/product.model";
 import { ProductDAOService } from "src/app/core/http/product-dao.service";
+import { LoadingService } from "src/app/core/services/loading.service";
 
 @Component({
   selector: "app-home",
@@ -9,9 +10,11 @@ import { ProductDAOService } from "src/app/core/http/product-dao.service";
 })
 export class HomeComponent implements OnInit {
   products: Product[];
-  constructor(private productDAO: ProductDAOService) {
+  constructor(private productDAO: ProductDAOService, private loadingService: LoadingService) {
+    this.loadingService.loadingOn();
     this.productDAO.getAll().subscribe((res) => {
       this.products = res;
+      this.loadingService.loadingOff();
     });
   }
 

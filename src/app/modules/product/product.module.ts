@@ -10,11 +10,13 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { NgxGalleryModule } from "ngx-gallery-9";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { SharedModule } from "src/app/shared/shared.module";
 
 @NgModule({
   declarations: [ProductComponent],
   imports: [
     CommonModule,
+    SharedModule,
     ProductRoutingModule,
     FormsModule,
     MatSelectModule,

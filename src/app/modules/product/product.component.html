@@ -4,8 +4,8 @@
       <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
     </div>
     <div class="details">
-      <h3 class="tshirtName">{{ product.product_name }}</h3>
-      <p class="price">{{ product.price }} EGP</p>
+      <h3 class="tshirtName">{{ product?.product_name }}</h3>
+      <p class="price">{{ product?.price }} EGP</p>
       <mat-form-field appearance="outline">
         <mat-label>Size</mat-label>
         <mat-select [ngModel]="selectedSize" (ngModelChange)="changeSelectedSize($event)">

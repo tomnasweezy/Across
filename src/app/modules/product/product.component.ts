@@ -8,6 +8,7 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from "ngx-gal
 import { v4 } from "uuid";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { ProductDAOService } from "src/app/core/http/product-dao.service";
+import { LoadingService } from "src/app/core/services/loading.service";
 @Component({
   selector: "app-product",
   templateUrl: "./product.component.html",
@@ -32,11 +33,13 @@ export class ProductComponent implements OnInit {
     private aRouter: ActivatedRoute,
     private cartService: CartService,
     private productDAO: ProductDAOService,
-    private location: Location
+    private location: Location,
+    private loadingService: LoadingService
   ) {
+    this.loadingService.loadingOn();
     this.aRouter.params.subscribe((parms) => {
       let pi = parms["productId"];
-      this.productDAO.getOneParam(pi).subscribe(
+      this.productDAO.getOne(pi).subscribe(
         (res) => {
           this.product = res;
           let g = [];
@@ -73,6 +76,7 @@ export class ProductComponent implements OnInit {
             }
           }
           this.colorList = this.sizeMap.get(this.selectedSize);
+          this.loadingService.loadingOff();
         },
         (error) => {
           console.log(error);

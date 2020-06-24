@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { LoadingService } from "./core/services/loading.service";
 
 @Component({
   selector: "app-root",
@@ -6,5 +7,14 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  title = "across-ang";
+  title = "across";
+  loadingStatus: boolean = false;
+
+  constructor(private loadingService: LoadingService) {}
+
+  ngOnInit() {
+    this.loadingService.getLoadingStatus().subscribe((res) => {
+      this.loadingStatus = res;
+    });
+  }
 }
