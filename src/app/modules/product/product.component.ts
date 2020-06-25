@@ -82,7 +82,6 @@ export class ProductComponent implements OnInit {
         },
         (error) => {
           console.log(error);
-          this.location.back();
         }
       );
     });

@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
 import { catchError } from "rxjs/operators";
+import { ErrorDialogService } from "../services/errorhandle.service";
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
@@ -12,14 +13,14 @@ export class ErrorInterceptor implements HttpInterceptor {
   internalErrorMessage = "Internal Server Error";
   jwtTokenExpireMessage = "Session has expired";
 
-  constructor() {}
+  constructor(private errorDialogService: ErrorDialogService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(catchError(this.handleError.bind(this)));
   }
 
   handleError(err: HttpErrorResponse): Observable<HttpEvent<HttpErrorResponse>> {
-    console.log(err);
+    this.errorDialogService.openDialog(err);
     return throwError(err);
   }
 
