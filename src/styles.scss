@@ -13,6 +13,11 @@
 .mat-tab-body-content {
   transform: none !important;
 }
+@media (max-width: 992px) {
+  .mat-dialog-container {
+    height: auto !important;
+  }
+}
 
 html,
 body {

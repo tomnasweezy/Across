@@ -13,8 +13,12 @@ import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MatListModule } from "@angular/material/list";
+import { MatSelectModule } from "@angular/material/select";
+import { ThankyouDialogComponent } from "./components/thankyou-dialog/thankyou-dialog.component";
+import { MatDialogModule } from "@angular/material/dialog";
+
 @NgModule({
-  declarations: [CheckoutComponent, ProductCardComponent],
+  declarations: [CheckoutComponent, ProductCardComponent, ThankyouDialogComponent],
   imports: [
     CommonModule,
     CheckoutRoutingModule,
@@ -24,9 +28,11 @@ import { MatListModule } from "@angular/material/list";
     MatInputModule,
     ReactiveFormsModule,
     MatCardModule,
+    MatSelectModule,
     MatIconModule,
     MatExpansionModule,
     MatListModule,
+    MatDialogModule,
     FormsModule,
   ],
 })

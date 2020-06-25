@@ -76,6 +76,15 @@
           <div class="address">
             <h4 style="font-weight: bold;">Shipping info</h4>
             <mat-form-field>
+              <mat-label>City</mat-label>
+              <mat-select formControlName="city" name="City">
+                <mat-option *ngFor="let city of cities" [value]="city">
+                  {{ city }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="errorHandling('city', 'required')"> You must provide a<strong> City</strong> </mat-error>
+            </mat-form-field>
+            <mat-form-field>
               <mat-label>Street Address</mat-label>
               <input matInput formControlName="streetaddress" name="streetaddress" type="text" placeholder="" required />
               <mat-error *ngIf="errorHandling('streetaddress', 'required')"> You must provide a<strong> street address</strong> </mat-error>
@@ -152,6 +161,10 @@
             <tr>
               <th>Flat No:</th>
               <td>{{ shippingData.value.flat_no }}</td>
+            </tr>
+            <tr>
+              <th>City</th>
+              <td>{{ shippingData.value.city }}</td>
             </tr>
             <tr>
               <th>Address</th>
@@ -281,6 +294,14 @@
         <div class="shippingaddrese">
           <div class="address">
             <h4 style="font-weight: bold;">Shipping info</h4>
+            <mat-form-field>
+              <mat-label>City</mat-label>
+              <mat-select formControlName="city" name="City">
+                <mat-option *ngFor="let city of cities" [value]="city">
+                  {{ city }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
             <mat-form-field>
               <mat-label>Street Address</mat-label>
               <input matInput formControlName="streetaddress" name="streetaddress" type="text" placeholder="" required />

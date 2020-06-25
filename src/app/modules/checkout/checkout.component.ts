@@ -8,6 +8,9 @@ import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { TooltipPosition } from "@angular/material/tooltip";
 import { CheckoutDAOService } from "src/app/core/http/checkout-dao.service";
 import { ReceiptModel } from "src/app/shared/models/Receipt.model";
+import { MatDialog } from "@angular/material/dialog";
+import { ThankyouDialogComponent } from "./components/thankyou-dialog/thankyou-dialog.component";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-checkout",
@@ -22,6 +25,7 @@ export class CheckoutComponent implements OnInit {
   step = 0;
   positionOptions: TooltipPosition[] = ["below"];
   typesOfpayment: string[] = ["cash on delivery", "Credit Card"];
+  cities: string[] = ["Cairo", "Giza", "6-october"];
   isLinear = false;
   isEditable = true;
   panelOpenState = false;
@@ -30,7 +34,13 @@ export class CheckoutComponent implements OnInit {
   isSmallScreen: any;
   innerWidth: number;
 
-  constructor(private cartService: CartService, private fb: FormBuilder, private checkoutDAO: CheckoutDAOService) {
+  constructor(
+    private cartService: CartService,
+    private fb: FormBuilder,
+    private router: Router,
+    private checkoutDAO: CheckoutDAOService,
+    public dialog: MatDialog
+  ) {
     this.cartService.getCartItemsObs().subscribe((res) => {
       this.realData = res;
       this.getSum();
@@ -44,6 +54,7 @@ export class CheckoutComponent implements OnInit {
       fullname: new FormControl("", [Validators.required]),
       email: new FormControl("", [Validators.required, Validators.email]),
       phonenumber: new FormControl("", [Validators.required]),
+      city: new FormControl("", [Validators.required]),
       streetaddress: new FormControl("", [Validators.required]),
       building_no: new FormControl("", [Validators.required]),
       floor_no: new FormControl("", [Validators.required]),
@@ -105,15 +116,18 @@ export class CheckoutComponent implements OnInit {
   }
 
   buyNow() {
-    let receipt: ReceiptModel = {
-      cart: this.realData,
-      userInfo: this.shippingData.value,
-      paymentType: "COD",
-    };
-    console.log("buy now button");
-    this.checkoutDAO.create(receipt).subscribe((res) => {
-      console.log("receipt", res);
-    });
+    // let receipt: ReceiptModel = {
+    //   cart: this.realData,
+    //   userInfo: this.shippingData.value,
+    //   paymentType: "COD",
+    // };
+    // // console.log("buy now button");
+    // this.checkoutDAO.create(receipt).subscribe((res) => {
+    //   console.log("receipt", res);
+    // });
+    this.dialog.open(ThankyouDialogComponent);
+    this.cartService.clearCart();
+    this.router.navigateByUrl(`home`);
   }
 
   public errorHandling(control: string, error: string) {

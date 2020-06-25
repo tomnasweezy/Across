@@ -43,6 +43,11 @@ export class CartService {
     localStorage.setItem("product", JSON.stringify(this.cart));
     this.cart$.next(this.cart);
   }
+  clearCart() {
+    this.cart = [];
+    localStorage.clear();
+    this.cart$.next(this.cart);
+  }
 
   getCartItems() {
     let products: CartItem[];
