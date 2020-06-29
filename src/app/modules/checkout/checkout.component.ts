@@ -116,18 +116,22 @@ export class CheckoutComponent implements OnInit {
   }
 
   buyNow() {
-    // let receipt: ReceiptModel = {
-    //   cart: this.realData,
-    //   userInfo: this.shippingData.value,
-    //   paymentType: "COD",
-    // };
-    // // console.log("buy now button");
-    // this.checkoutDAO.create(receipt).subscribe((res) => {
-    //   console.log("receipt", res);
-    // });
-    this.dialog.open(ThankyouDialogComponent);
-    this.cartService.clearCart();
-    this.router.navigateByUrl(`home`);
+    let receipt: ReceiptModel = {
+      cart: this.realData,
+      userInfo: this.shippingData.value,
+      paymentType: "COD",
+    };
+    // console.log("buy now button");
+    this.checkoutDAO.create(receipt).subscribe((res) => {
+      console.log("receipt", res);
+    });
+    this.dialog
+      .open(ThankyouDialogComponent)
+      .afterClosed()
+      .subscribe((res) => {
+        this.cartService.clearCart();
+        this.router.navigateByUrl(`home`);
+      });
   }
 
   public errorHandling(control: string, error: string) {
