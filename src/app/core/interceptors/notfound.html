@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <img src="404notfound.png" alt="okok" />
+      <p class="text">OOps... this Page is not Found</p>
+      <button onclick="">Go Back</button>
+    </div>
+  </body>
+  <style>
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      margin: auto;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 500px;
+    }
+    .wrapper img {
+      width: 40%;
+      align-self: center;
+    }
+    .text {
+      font-size: 50px;
+      color: black;
+      font-weight: bold;
+      text-align: center;
+    }
+    button {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      width: 22%;
+      height: 46px;
+      color: #ffffff;
+      border: none;
+      outline: none;
+      background-color: #333;
+      border-radius: 0px;
+    }
+    @media (max-width: 600px) {
+      .wrapper img {
+        width: 70%;
+        align-self: center;
+      }
+      .text {
+        font-size: 35px;
+        color: black;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+  </style>
+</html>
