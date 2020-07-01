@@ -125,9 +125,13 @@ export class CheckoutComponent implements OnInit {
     this.checkoutDAO.create(receipt).subscribe((res) => {
       console.log("receipt", res);
     });
-    this.dialog.open(ThankyouDialogComponent);
-    this.cartService.clearCart();
-    this.router.navigateByUrl(`home`);
+    this.dialog
+      .open(ThankyouDialogComponent)
+      .afterClosed()
+      .subscribe((res) => {
+        this.cartService.clearCart();
+        this.router.navigateByUrl(`home`);
+      });
   }
 
   public errorHandling(control: string, error: string) {
