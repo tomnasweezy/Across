@@ -6,23 +6,19 @@
   <div class="details">
     <mat-form-field>
       <mat-label>Full Name</mat-label>
-      <input [(ngModel)]="Contactus.Fullname" matInput name="fullname" placeholder="Name" required />
+      <input [(ngModel)]="Contactus.Fullname" matInput name="Fullname" placeholder="Fullname" required />
+      <mat-error *ngIf="errorHandling('Fullname', 'required')"> You must provide a<strong> name</strong> </mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Email</mat-label>
-      <input [(ngModel)]="Contactus.email" matInput name="fullname" placeholder="Email" required />
+      <input [(ngModel)]="Contactus.email" matInput name="email" placeholder="Email" required />
+      <mat-error *ngIf="errorHandling('email', 'required')"> You must provide a<strong> email</strong> </mat-error>
     </mat-form-field>
   </div>
   <mat-form-field>
     <mat-label>Message</mat-label>
-    <textarea
-      [(ngModel)]="Contactus.message"
-      rows="9"
-      matInput
-      name="streetaddress"
-      placeholder="Type your message here...."
-      required
-    ></textarea>
+    <textarea [(ngModel)]="Contactus.message" rows="9" matInput name="message" placeholder="Type your message here...." required></textarea>
+    <mat-error *ngIf="errorHandling('message', 'required')"> You must provide a<strong> comment</strong> </mat-error>
   </mat-form-field>
 
   <button mat-raised-button matStepperPrevious (click)="messagesend()">Submit</button>

@@ -51,15 +51,15 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.shippingData = this.fb.group({
-      fullname: new FormControl("", [Validators.required]),
+      fullName: new FormControl("", [Validators.required]),
       email: new FormControl("", [Validators.required, Validators.email]),
       phonenumber: new FormControl("", [Validators.required]),
       city: new FormControl("", [Validators.required]),
-      streetaddress: new FormControl("", [Validators.required]),
+      street_addr: new FormControl("", [Validators.required]),
       building_no: new FormControl("", [Validators.required]),
       floor_no: new FormControl("", [Validators.required]),
       flat_no: new FormControl("", [Validators.required]),
-      address_land: new FormControl(""),
+      addr_landmark: new FormControl(""),
       comment: [""],
     });
   }
@@ -129,8 +129,8 @@ export class CheckoutComponent implements OnInit {
       .open(ThankyouDialogComponent)
       .afterClosed()
       .subscribe((res) => {
-        this.cartService.clearCart();
-        this.router.navigateByUrl(`home`);
+        // this.cartService.clearCart();
+        // this.router.navigateByUrl(`home`);
       });
   }
 

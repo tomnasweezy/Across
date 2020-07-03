@@ -54,8 +54,8 @@
           <h4 style="font-weight: bold;">Personal info</h4>
           <mat-form-field>
             <mat-label>Full Name</mat-label>
-            <input matInput formControlName="fullname" name="fullname" placeholder="John Doe" required />
-            <mat-error *ngIf="errorHandling('fullname', 'required')"> You must provide a<strong> full name</strong> </mat-error>
+            <input matInput formControlName="fullName" name="fullName" placeholder="John Doe" required />
+            <mat-error *ngIf="errorHandling('fullName', 'required')"> You must provide a<strong> full name</strong> </mat-error>
           </mat-form-field>
 
           <mat-form-field>
@@ -86,8 +86,8 @@
             </mat-form-field>
             <mat-form-field>
               <mat-label>Street Address</mat-label>
-              <input matInput formControlName="streetaddress" name="streetaddress" type="text" placeholder="" required />
-              <mat-error *ngIf="errorHandling('streetaddress', 'required')"> You must provide a<strong> street address</strong> </mat-error>
+              <input matInput formControlName="street_addr" name="street_addr" type="text" placeholder="" required />
+              <mat-error *ngIf="errorHandling('street_addr', 'required')"> You must provide a<strong> street address</strong> </mat-error>
             </mat-form-field>
             <div class="apt-info">
               <mat-form-field>
@@ -110,7 +110,7 @@
 
             <mat-form-field>
               <mat-label>Address landmark</mat-label>
-              <input matInput formControlName="address_land" name="address_land" placeholder="Beside the famous.." />
+              <input matInput formControlName="addr_landmark" name="addr_landmark" placeholder="Beside the famous.." />
             </mat-form-field>
           </div>
           <div class="comment">
@@ -140,7 +140,7 @@
           <table class="shipping-address-table">
             <tr>
               <th>Full name</th>
-              <td>{{ shippingData.value.fullname }}</td>
+              <td>{{ shippingData.value.fullName }}</td>
             </tr>
             <tr>
               <th>Phone No:</th>
@@ -168,11 +168,11 @@
             </tr>
             <tr>
               <th>Address</th>
-              <td>{{ shippingData.value.streetaddress }}</td>
+              <td>{{ shippingData.value.street_addr }}</td>
             </tr>
             <tr>
               <th>Landmark</th>
-              <td>{{ shippingData.value.address_land }}</td>
+              <td>{{ shippingData.value.addr_landmark }}</td>
             </tr>
             <tr>
               <th>Comment</th>
@@ -273,8 +273,8 @@
           <h4 style="font-weight: bold;">Personal info</h4>
           <mat-form-field>
             <mat-label>Full Name</mat-label>
-            <input matInput formControlName="fullname" name="fullname" placeholder="John Doe" required />
-            <mat-error *ngIf="errorHandling('fullname', 'required')"> You must provide a<strong> full name</strong> </mat-error>
+            <input matInput formControlName="fullName" name="fullName" placeholder="John Doe" required />
+            <mat-error *ngIf="errorHandling('fullName', 'required')"> You must provide a<strong> full name</strong> </mat-error>
           </mat-form-field>
 
           <mat-form-field>
@@ -304,8 +304,8 @@
             </mat-form-field>
             <mat-form-field>
               <mat-label>Street Address</mat-label>
-              <input matInput formControlName="streetaddress" name="streetaddress" type="text" placeholder="" required />
-              <mat-error *ngIf="errorHandling('streetaddress', 'required')"> You must provide a<strong> street address</strong> </mat-error>
+              <input matInput formControlName="street_addr" name="street_addr" type="text" placeholder="" required />
+              <mat-error *ngIf="errorHandling('street_addr', 'required')"> You must provide a<strong> street address</strong> </mat-error>
             </mat-form-field>
             <div class="apt-info">
               <mat-form-field>
@@ -328,7 +328,7 @@
 
             <mat-form-field>
               <mat-label>Address landmark</mat-label>
-              <input matInput formControlName="address_land" name="address_land" placeholder="Beside the famous.." />
+              <input matInput formControlName="addr_landmark" name="addr_landmark" placeholder="Beside the famous.." />
             </mat-form-field>
           </div>
           <div class="comment">
@@ -358,7 +358,7 @@
           <table class="shipping-address-table">
             <tr>
               <th>Full name</th>
-              <td>{{ shippingData.value.fullname }}</td>
+              <td>{{ shippingData.value.fullName }}</td>
             </tr>
             <tr>
               <th>Phone No:</th>
@@ -382,11 +382,11 @@
             </tr>
             <tr>
               <th>Address</th>
-              <td>{{ shippingData.value.streetaddress }}</td>
+              <td>{{ shippingData.value.street_addr }}</td>
             </tr>
             <tr>
               <th>Landmark</th>
-              <td>{{ shippingData.value.address_land }}</td>
+              <td>{{ shippingData.value.addr_landmark }}</td>
             </tr>
             <tr>
               <th>Comment</th>
