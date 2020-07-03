@@ -13,11 +13,11 @@ import { FormGroup, FormControl, FormBuilder, Validators } from "@angular/forms"
 })
 export class ContactusComponent implements OnInit {
   ContactusData: FormGroup;
-  Contactus: contactUsModel = {
-    Fullname: null,
-    email: null,
-    message: null,
-  };
+  // Contactus: contactUsModel = {
+  //   Fullname: null,
+  //   email: null,
+  //   message: null,
+  // };
 
   constructor(private fb: FormBuilder, private contactUsDAO: ContactUsDAOService, public dialog: MatDialog, private router: Router) {}
 
@@ -31,18 +31,17 @@ export class ContactusComponent implements OnInit {
 
   messagesend() {
     console.log(this.ContactusData.status);
-    // if (this.ContactusData.status == "VALID") {
-    this.contactUsDAO.create(this.Contactus).subscribe((res) => {
-      console.log("Contactus", res);
-      this.dialog
-        .open(FeedbackthankyouComponent)
-        .afterClosed()
-        .subscribe((res) => {
-          // this.cartService.clearCart();
-          this.router.navigateByUrl(`home`);
-        });
-    });
-    // }
+    if (this.ContactusData.status == "VALID") {
+      this.contactUsDAO.create(this.ContactusData.value).subscribe((res) => {
+        console.log("Contactus", res);
+        this.dialog
+          .open(FeedbackthankyouComponent)
+          .afterClosed()
+          .subscribe((res) => {
+            this.router.navigateByUrl(`home`);
+          });
+      });
+    }
   }
 
   public errorHandling(control: string, error: string) {

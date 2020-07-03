@@ -129,8 +129,8 @@ export class CheckoutComponent implements OnInit {
       .open(ThankyouDialogComponent)
       .afterClosed()
       .subscribe((res) => {
-        // this.cartService.clearCart();
-        // this.router.navigateByUrl(`home`);
+        this.cartService.clearCart();
+        this.router.navigateByUrl(`home`);
       });
   }
 
