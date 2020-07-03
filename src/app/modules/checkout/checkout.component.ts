@@ -25,7 +25,7 @@ export class CheckoutComponent implements OnInit {
   step = 0;
   positionOptions: TooltipPosition[] = ["below"];
   typesOfpayment: string[] = ["cash on delivery", "Credit Card"];
-  cities: string[] = ["Cairo", "Giza", "6-october"];
+  cities: string[] = ["Cairo", "Giza", "6-october", "Madinaty", "El Sherouk", "Obour", "El sheiekZayed"];
   isLinear = false;
   isEditable = true;
   panelOpenState = false;
