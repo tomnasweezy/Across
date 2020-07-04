@@ -1,15 +1,17 @@
-import { Component, OnInit } from "@angular/core";
-import { CartItem } from "src/app/shared/models/cart.model";
-import { ActivatedRoute } from "@angular/router";
-import { Product } from "src/app/shared/models/product.model";
-import { CartService } from "src/app/core/services/cart.service";
 import { Location } from "@angular/common";
-import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from "ngx-gallery-9";
-import { v4 } from "uuid";
+import { Component, OnInit } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { ActivatedRoute } from "@angular/router";
+
+import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from "ngx-gallery-9";
 import { ProductDAOService } from "src/app/core/http/product-dao.service";
+import { CartService } from "src/app/core/services/cart.service";
 import { LoadingService } from "src/app/core/services/loading.service";
+import { CartItem } from "src/app/shared/models/cart.model";
+import { Product } from "src/app/shared/models/product.model";
 import { environment } from "src/environments/environment";
+import { v4 } from "uuid";
+
 @Component({
   selector: "app-product",
   templateUrl: "./product.component.html",

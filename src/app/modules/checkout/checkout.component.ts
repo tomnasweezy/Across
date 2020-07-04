@@ -1,16 +1,16 @@
-import { Component, OnInit, ViewChild, Input, Output, ElementRef, OnChanges, HostListener } from "@angular/core";
-import { CartItem } from "src/app/shared/models/cart.model";
-import { CartService } from "src/app/core/services/cart.service";
-import { Product } from "src/app/shared/models/product.model";
-import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
-import { MatStepper } from "@angular/material/stepper";
-import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
-import { TooltipPosition } from "@angular/material/tooltip";
-import { CheckoutDAOService } from "src/app/core/http/checkout-dao.service";
-import { ReceiptModel } from "src/app/shared/models/Receipt.model";
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from "@angular/core";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { MatDialog } from "@angular/material/dialog";
-import { ThankyouDialogComponent } from "./components/thankyou-dialog/thankyou-dialog.component";
+import { MatStepper } from "@angular/material/stepper";
+import { TooltipPosition } from "@angular/material/tooltip";
 import { Router } from "@angular/router";
+
+import { CheckoutDAOService } from "src/app/core/http/checkout-dao.service";
+import { CartService } from "src/app/core/services/cart.service";
+import { CartItem } from "src/app/shared/models/cart.model";
+import { ReceiptModel } from "src/app/shared/models/Receipt.model";
+
+import { ThankyouDialogComponent } from "./components/thankyou-dialog/thankyou-dialog.component";
 
 @Component({
   selector: "app-checkout",

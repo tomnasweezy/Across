@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { Route } from "@angular/compiler/src/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+
 import { Product } from "src/app/shared/models/product.model";
-import { CartItem } from "src/app/shared/models/cart.model";
 import { environment } from "src/environments/environment";
+
 @Component({
   selector: "app-product-home",
   templateUrl: "./product-home.component.html",

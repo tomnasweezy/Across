@@ -1,3 +1,7 @@
 export const environment = {
-  production: true
+  apiUrl: "http://localhost",
+  mediaUrl: "http://localhost",
+  port: 4000,
+  webport: 4200,
+  production: true,
 };

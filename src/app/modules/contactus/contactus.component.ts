@@ -1,10 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { ContactUsDAOService } from "src/app/core/http/contactus-dao.service";
-import { contactUsModel } from "src/app/shared/models/contactus.model";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { MatDialog } from "@angular/material/dialog";
 import { Router } from "@angular/router";
+
+import { ContactUsDAOService } from "src/app/core/http/contactus-dao.service";
+
 import { FeedbackthankyouComponent } from "./components/feedbackthankyou/feedbackthankyou.component";
-import { FormGroup, FormControl, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-contactus",
@@ -13,11 +14,6 @@ import { FormGroup, FormControl, FormBuilder, Validators } from "@angular/forms"
 })
 export class ContactusComponent implements OnInit {
   ContactusData: FormGroup;
-  // Contactus: contactUsModel = {
-  //   Fullname: null,
-  //   email: null,
-  //   message: null,
-  // };
 
   constructor(private fb: FormBuilder, private contactUsDAO: ContactUsDAOService, public dialog: MatDialog, private router: Router) {}
 
