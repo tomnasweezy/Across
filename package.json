@@ -10,6 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "serveDev": "ng serve --host acrosseghisham.com --disable-host-check",
+    "serveProd": "ng serve --prod --host acrosseghisham.com --disable-host-check",
     "build:stats": "ng build --prod --stats-json",
     "analyze": "webpack-bundle-analyzer dist/across-ang/stats-es2015.json"
   },
@@ -36,7 +37,6 @@
     "@types/uuid": "^8.0.0",
     "angular-bootstrap-md": "^9.3.1",
     "animate.css": "^4.1.0",
-    "chart.js": "^2.5.0",
     "hammerjs": "^2.0.8",
     "ngx-cookie-service": "^3.0.4",
     "ngx-gallery-9": "^1.0.6",
@@ -50,7 +50,6 @@
     "@angular-devkit/build-angular": "~0.901.8",
     "@angular/cli": "~9.1.8",
     "@angular/compiler-cli": "~9.1.11",
-    "@types/chart.js": "^2.9.21",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
