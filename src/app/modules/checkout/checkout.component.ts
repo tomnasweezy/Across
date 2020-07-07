@@ -8,9 +8,12 @@ import { Router } from "@angular/router";
 import { CheckoutDAOService } from "src/app/core/http/checkout-dao.service";
 import { CartService } from "src/app/core/services/cart.service";
 import { CartItem } from "src/app/shared/models/cart.model";
-import { ReceiptModel } from "src/app/shared/models/Receipt.model";
 
 import { ThankyouDialogComponent } from "./components/thankyou-dialog/thankyou-dialog.component";
+
+// import { ReceiptModel } from "src/app/shared/models/Receipt.model";
+
+
 
 @Component({
   selector: "app-checkout",
@@ -116,7 +119,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   buyNow() {
-    let receipt: ReceiptModel = {
+    let receipt: any = {
       cart: this.realData,
       userInfo: this.shippingData.value,
       paymentType: "COD",

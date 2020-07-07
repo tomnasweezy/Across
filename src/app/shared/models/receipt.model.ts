@@ -1,7 +1,7 @@
 import { CartItem } from "./Cart.model";
 import { UserModel } from "./User.model";
 
-export interface ReceiptModel {
+export class ReceiptModel {
   id?: string;
   cart?: CartItem[];
   userInfo?: UserModel;

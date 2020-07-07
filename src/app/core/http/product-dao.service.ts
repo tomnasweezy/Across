@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
-import { ApiService } from "./api.service";
+
 import { Product } from "src/app/shared/models/product.model";
+
+import { ApiService } from "./api.service";
 import { GlobalDAOService } from "./global-dao.service";
 
 @Injectable({
