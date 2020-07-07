@@ -24,6 +24,7 @@ p {
 
     .image-wrapper {
       width: 300px;
+      max-height: 500px;
       height: auto;
       flex: 1;
 
@@ -91,6 +92,27 @@ p {
       .example-headers-align {
         margin-top: 40px;
         width: 100%;
+
+        .tshirtinfo {
+          width: 100%;
+          margin-bottom: 15px;
+          p {
+            margin: 0;
+            font-size: 13px;
+          }
+        }
+        .sizechart {
+          transform: scale(1.3);
+          width: 100%;
+          height: 100%;
+
+          img {
+            object-fit: contain;
+            width: 100%;
+            margin-top: 10px;
+            height: 100%;
+          }
+        }
       }
     }
   }

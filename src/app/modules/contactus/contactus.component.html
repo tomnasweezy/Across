@@ -3,28 +3,25 @@
   <!-- <div class="message">
     <p>Whatever you send us just want to say we actually give a <img src="\assets\shit.png" /></p>
   </div> -->
-  <div class="details">
+  <form [formGroup]="ContactusData" (ngSubmit)="messagesend()">
+    <div class="details">
+      <mat-form-field>
+        <mat-label>Full Name</mat-label>
+        <input formControlName="Fullname" matInput name="Fullname" placeholder="Fullname" required />
+        <mat-error *ngIf="errorHandling('Fullname', 'required')"> You must provide a<strong> name</strong> </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput name="email" placeholder="Email" required />
+        <mat-error *ngIf="errorHandling('email', 'required')"> You must provide a<strong> email</strong> </mat-error>
+      </mat-form-field>
+    </div>
     <mat-form-field>
-      <mat-label>Full Name</mat-label>
-      <input [(ngModel)]="Contactus.Fullname" matInput name="fullname" placeholder="Name" required />
+      <mat-label>Message</mat-label>
+      <textarea formControlName="message" rows="9" matInput name="message" placeholder="Type your message here...." required></textarea>
+      <mat-error *ngIf="errorHandling('message', 'required')"> You must provide a<strong> comment</strong> </mat-error>
     </mat-form-field>
-    <mat-form-field>
-      <mat-label>Email</mat-label>
-      <input [(ngModel)]="Contactus.email" matInput name="fullname" placeholder="Email" required />
-    </mat-form-field>
-  </div>
-  <mat-form-field>
-    <mat-label>Message</mat-label>
-    <textarea
-      [(ngModel)]="Contactus.message"
-      rows="9"
-      matInput
-      name="streetaddress"
-      placeholder="Type your message here...."
-      required
-    ></textarea>
-  </mat-form-field>
-
-  <button mat-raised-button matStepperPrevious (click)="messagesend()">Submit</button>
-  <p>We give a <img src="\assets\shit.png" /></p>
+    <button mat-raised-button>Submit</button>
+    <p>We give a <img src="\assets\shit.png" /></p>
+  </form>
 </div>

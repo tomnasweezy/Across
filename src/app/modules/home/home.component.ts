@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Product } from "src/app/shared/models/product.model";
+
 import { ProductDAOService } from "src/app/core/http/product-dao.service";
 import { LoadingService } from "src/app/core/services/loading.service";
+import { Product } from "src/app/shared/models/product.model";
 
 @Component({
   selector: "app-home",

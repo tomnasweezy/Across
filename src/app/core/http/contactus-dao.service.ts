@@ -1,15 +1,14 @@
 import { Injectable } from "@angular/core";
-
-import { Product } from "src/app/shared/models/product.model";
-
 import { ApiService } from "./api.service";
+
 import { GlobalDAOService } from "./global-dao.service";
+import { contactUsModel } from "src/app/shared/models/contactus.model";
 
 @Injectable({
   providedIn: "root",
 })
-export class ProductDAOService extends GlobalDAOService<Product> {
-  pageName: string = "product";
+export class ContactUsDAOService extends GlobalDAOService<contactUsModel> {
+  pageName: string = "contactus";
 
   constructor(protected _api: ApiService) {
     super(_api);

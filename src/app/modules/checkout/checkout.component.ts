@@ -1,16 +1,19 @@
-import { Component, OnInit, ViewChild, Input, Output, ElementRef, OnChanges, HostListener } from "@angular/core";
-import { CartItem } from "src/app/shared/models/cart.model";
-import { CartService } from "src/app/core/services/cart.service";
-import { Product } from "src/app/shared/models/product.model";
-import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
-import { MatStepper } from "@angular/material/stepper";
-import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
-import { TooltipPosition } from "@angular/material/tooltip";
-import { CheckoutDAOService } from "src/app/core/http/checkout-dao.service";
-import { ReceiptModel } from "src/app/shared/models/Receipt.model";
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from "@angular/core";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { MatDialog } from "@angular/material/dialog";
-import { ThankyouDialogComponent } from "./components/thankyou-dialog/thankyou-dialog.component";
+import { MatStepper } from "@angular/material/stepper";
+import { TooltipPosition } from "@angular/material/tooltip";
 import { Router } from "@angular/router";
+
+import { CheckoutDAOService } from "src/app/core/http/checkout-dao.service";
+import { CartService } from "src/app/core/services/cart.service";
+import { CartItem } from "src/app/shared/models/cart.model";
+
+import { ThankyouDialogComponent } from "./components/thankyou-dialog/thankyou-dialog.component";
+
+// import { ReceiptModel } from "src/app/shared/models/Receipt.model";
+
+
 
 @Component({
   selector: "app-checkout",
@@ -25,7 +28,7 @@ export class CheckoutComponent implements OnInit {
   step = 0;
   positionOptions: TooltipPosition[] = ["below"];
   typesOfpayment: string[] = ["cash on delivery", "Credit Card"];
-  cities: string[] = ["Cairo", "Giza", "6-october"];
+  cities: string[] = ["Cairo", "Giza", "6-october", "Madinaty", "El Sherouk", "Obour", "El sheiekZayed"];
   isLinear = false;
   isEditable = true;
   panelOpenState = false;
@@ -51,15 +54,15 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.shippingData = this.fb.group({
-      fullname: new FormControl("", [Validators.required]),
+      fullName: new FormControl("", [Validators.required]),
       email: new FormControl("", [Validators.required, Validators.email]),
       phonenumber: new FormControl("", [Validators.required]),
       city: new FormControl("", [Validators.required]),
-      streetaddress: new FormControl("", [Validators.required]),
+      street_addr: new FormControl("", [Validators.required]),
       building_no: new FormControl("", [Validators.required]),
       floor_no: new FormControl("", [Validators.required]),
       flat_no: new FormControl("", [Validators.required]),
-      address_land: new FormControl(""),
+      addr_landmark: new FormControl(""),
       comment: [""],
     });
   }
@@ -116,7 +119,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   buyNow() {
-    let receipt: ReceiptModel = {
+    let receipt: any = {
       cart: this.realData,
       userInfo: this.shippingData.value,
       paymentType: "COD",
