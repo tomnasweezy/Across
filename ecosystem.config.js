@@ -14,8 +14,7 @@ module.exports = {
       repo: "git@github.com:tomnasweezy/across.git",
       path: "$HOME/across-client",
       "pre-deploy-local": "",
-      // "post-deploy":
-      //   "npm install && npm run build:tsc && pm2 reload ecosystem.config.js --env production",
+      "post-deploy": "npm install",
       "pre-setup": "",
     },
   },
