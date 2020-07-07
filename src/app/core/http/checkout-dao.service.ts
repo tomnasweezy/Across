@@ -1,7 +1,9 @@
 import { Injectable } from "@angular/core";
+
+import { ReceiptModel } from "src/app/shared/models/Receipt.model";
+
 import { ApiService } from "./api.service";
 import { GlobalDAOService } from "./global-dao.service";
-import { ReceiptModel } from "src/app/shared/models/Receipt.model";
 
 @Injectable({
   providedIn: "root",
