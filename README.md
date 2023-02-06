@@ -1,5 +1,35 @@
 # Across
 
+
+![tshirt0](https://user-images.githubusercontent.com/16877555/216920120-46c1b4fa-a1ea-442a-8b37-b0bf3726cbeb.png)
+
+
+
+
+
+![tshirt1](https://user-images.githubusercontent.com/16877555/216920167-25f95b2e-9489-4f73-b580-6a3815011753.png)
+
+
+
+
+![tshirt2](https://user-images.githubusercontent.com/16877555/216920225-c0477478-24ae-4d12-8a38-40e602575fc3.png)
+
+
+
+
+
+
+![tshirt3](https://user-images.githubusercontent.com/16877555/216920267-00565f25-ba64-4c27-9b25-c3f4108e80d6.png)
+
+
+
+
+
+![tshirt4](https://user-images.githubusercontent.com/16877555/216920284-2b3ebe88-56bd-46b1-bd60-7ab0be5f718b.png)
+
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
 ## Development server
